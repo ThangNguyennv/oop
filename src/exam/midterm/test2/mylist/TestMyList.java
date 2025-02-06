@@ -11,6 +11,7 @@ public class TestMyList {
 
         testMyArrayList();
         testMyLinkedList();
+        System.out.println(123);
     }
 
     public static void testMyArrayList() {

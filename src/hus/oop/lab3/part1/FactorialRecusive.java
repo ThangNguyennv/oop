@@ -68,8 +68,9 @@ public class FactorialRecusive {
         System.out.print("Enter the first number: ");
         int firstNum = Integer.parseInt(sc.nextLine());
         System.out.print("Enter the second number: ");
-        int seconNum = sc.nextInt();
-        System.out.println("GCD of the two number " + firstNum + " and " + seconNum + " is: " + gcd(firstNum, seconNum));
+        int secondNum = sc.nextInt();
+        System.out.println("GCD of the two number " +
+                firstNum + " and " + secondNum + " is: " + gcd(firstNum, secondNum));
     }
 
     public static void main(String[] args) {

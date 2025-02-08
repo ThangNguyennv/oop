@@ -4,7 +4,7 @@ public class Rectangle {
     private float length;
     private float width;
 
-    public Rectangle() { // Hàm dựng đc định nghĩa
+    public Rectangle() {
         length = 1.0f;
         width = 1.0f;
     }

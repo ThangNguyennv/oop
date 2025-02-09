@@ -11,7 +11,6 @@ public class TestMyList {
 
         testMyArrayList();
         testMyLinkedList();
-        System.out.println(123456789);
     }
 
     public static void testMyArrayList() {
@@ -24,7 +23,7 @@ public class TestMyList {
 
         MyArrayList myList = new MyArrayList();
         // Thêm các phần tử vào danh sách
-        myList.append(10.5);;
+        myList.append(10.5);
         myList.append(7.2);
         myList.append(9.8);
         myList.append(12.1);
@@ -34,11 +33,11 @@ public class TestMyList {
         BasicStatistic statistic = new BasicStatistic(myList);
 
         // In ra thông tin về dữ liệu và các đại lượng thống kê
-        System.out.println("Du lieu trong MyArrayList: " + myList);
-        System.out.println("Gia tri lon nhat: " + statistic.max());
-        System.out.println("Gia tri nho nhat: " + statistic.min());
-        System.out.println("Ky vong: " + statistic.mean());
-        System.out.println("Phuong sai: " + statistic.variance());
+        System.out.println("Dữ liệu trong MyArrayList: " + myList);
+        System.out.println("Giá trị lớn nhất: " + statistic.max());
+        System.out.println("Giá trị nhỏ nhất: " + statistic.min());
+        System.out.println("Kỳ vọng: " + statistic.mean());
+        System.out.println("Phương sai: " + statistic.variance());
         System.out.println();
     }
 
@@ -52,21 +51,21 @@ public class TestMyList {
 
         MyLinkedList myList = new MyLinkedList();
         // Thêm các phần tử vào danh sách
-        myList.append(4.6);
-        myList.append(8.3);
-        myList.append(5.9);
-        myList.append(10.2);
-        myList.append(7.7);
+        myList.append(10.5);
+        myList.append(7.2);
+        myList.append(9.8);
+        myList.append(12.1);
+        myList.append(6.5);
 
         // Sử dụng BasicStatistic để tính các đại lượng thống kê cơ bản
         BasicStatistic statistic = new BasicStatistic(myList);
 
         // In ra thông tin về dữ liệu và các đại lượng thống kê
-        System.out.println("Du lieu trong MyLinkedList: " + myList);
-        System.out.println("Gia tri lon nhat: " + statistic.max());
-        System.out.println("Gia tri nho nhat: " + statistic.min());
-        System.out.println("Ky vong: " + statistic.mean());
-        System.out.println("Phuong sai: " + statistic.variance());
+        System.out.println("Dữ liệu trong MyLinkedList: " + myList);
+        System.out.println("Giá trị lớn nhất: " + statistic.max());
+        System.out.println("Giá trị nhỏ nhất: " + statistic.min());
+        System.out.println("Kỳ vọng: " + statistic.mean());
+        System.out.println("Phương sai: " + statistic.variance());
         System.out.println();
     }
 }

@@ -2,7 +2,7 @@ package exam.midterm.test3.student;
 
 import java.util.Objects;
 
-public class Student {
+public class Student implements StudentComparable {
     String name;
     String lastname;
     double average;
@@ -46,7 +46,7 @@ public class Student {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        
+
         Student student = (Student) o;
         return Double.compare(student.average, average) == 0
                 && Objects.equals(name, student.name)
@@ -65,5 +65,14 @@ public class Student {
                 ", lastname='" + lastname + '\'' +
                 ", average=" + average +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Student another) {
+        if (this.name.compareTo(another.name) != 0) {
+            return this.name.compareTo(another.name);
+        } else {
+            return this.lastname.compareTo(another.lastname);
+        }
     }
 }

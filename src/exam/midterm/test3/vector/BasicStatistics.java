@@ -81,7 +81,8 @@ public class BasicStatistics {
 
         System.out.println("Phép nhân vector myArrayVector1 với 1 giá trị là: " + myArrayVector1.scale(2));
 
-        System.out.println("Phép nhân vô hướng 2 vector myArrayVector1 và myArrayVector2 là: " + myArrayVector1.dot(myArrayVector2));
+        System.out.println("Phép nhân vô hướng 2 vector myArrayVector1 và myArrayVector2 là: " +
+                myArrayVector1.dot(myArrayVector2));
 
         int[] indices = new int[]{3, 2, 1};
         System.out.println("Vector con ban đầu của myArrayVector1 được trích xuất theo chỉ số của mảng đầu vào là: " +
@@ -125,7 +126,8 @@ public class BasicStatistics {
 
         System.out.println("Phép nhân vector myListVector1 với 1 giá trị là: " + myListVector1.scale(2));
 
-        System.out.println("Phép nhân vô hướng 2 vector myListVector1 và myListVector2 là: " + myListVector1.dot(myListVector2));
+        System.out.println("Phép nhân vô hướng 2 vector myListVector1 và myListVector2 là: " +
+                myListVector1.dot(myListVector2));
 
         int[] indices = new int[]{3, 2, 1};
         System.out.println("Vector con ban đầu của myListVector1 được trích xuất theo chỉ số của mảng đầu vào là: " +

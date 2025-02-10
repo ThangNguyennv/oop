@@ -1,5 +1,7 @@
 package exam.midterm.test3.student;
 
+import java.util.NoSuchElementException;
+
 public class MyArrayListIterator implements MyIterator {
     /* GỢI Ý: */
     /*
@@ -7,6 +9,8 @@ public class MyArrayListIterator implements MyIterator {
     các phần tử trong dữ liệu của MyArrayList.
      */
     private Object[] data;
+    private int size; // Số lượng phần tử thực tế
+
 
     /*
     MyArrayListIterator cần phải biết vị trí hiện tại khi nó đang duyệt qua dữ liệu của MyArrayList.
@@ -18,8 +22,11 @@ public class MyArrayListIterator implements MyIterator {
      * của MyArrayList.
      * @param data
      */
-    public MyArrayListIterator(Object[] data) {
+    public MyArrayListIterator(Object[] data, int size) {
         /* TODO */
+        this.data = data;
+        this.currentPosition = 0;
+        this.size = size;
     }
 
     /**
@@ -30,6 +37,7 @@ public class MyArrayListIterator implements MyIterator {
     @Override
     public boolean hasNext() {
         /* TODO */
+        return currentPosition < size;
     }
 
     /**
@@ -39,5 +47,10 @@ public class MyArrayListIterator implements MyIterator {
     @Override
     public Object next() {
         /* TODO */
+        if (!hasNext()) {
+            throw new NoSuchElementException("No more elements");
+        }
+
+        return data[currentPosition++];
     }
 }

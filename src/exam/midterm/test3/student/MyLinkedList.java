@@ -9,6 +9,8 @@ public class MyLinkedList extends MyAbstractList {
      */
     public MyLinkedList() {
         /* TODO */
+        head = null;
+        size = 0;
     }
 
     /**
@@ -18,6 +20,7 @@ public class MyLinkedList extends MyAbstractList {
     @Override
     public int size() {
         /* TODO */
+        return size;
     }
 
     /**
@@ -28,6 +31,8 @@ public class MyLinkedList extends MyAbstractList {
     @Override
     public Object get(int index) {
         /* TODO */
+        MyLinkedListNode node = getNodeByIndex(index);
+        return node.getPayload();
     }
 
     /**
@@ -38,6 +43,8 @@ public class MyLinkedList extends MyAbstractList {
     @Override
     public void set(Object payload, int index) {
         /* TODO */
+        MyLinkedListNode node = getNodeByIndex(index);
+        node.setPayload(payload);
     }
 
     /**
@@ -47,6 +54,17 @@ public class MyLinkedList extends MyAbstractList {
     @Override
     public void remove(int index) {
         /* TODO */
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index out of range");
+        }
+        if (index == 0) {
+            head = head.getNext();
+        } else {
+            MyLinkedListNode prevNode = getNodeByIndex(index - 1);
+            MyLinkedListNode currentNode = prevNode.getNext();
+            prevNode.setNext(currentNode.getNext());
+        }
+        size--;
     }
 
     /**
@@ -56,6 +74,14 @@ public class MyLinkedList extends MyAbstractList {
     @Override
     public void append(Object payload) {
         /* TODO */
+        MyLinkedListNode newNode = new MyLinkedListNode(payload);
+        if (head == null) {
+            head = newNode;
+        } else {
+            MyLinkedListNode lastNode = getNodeByIndex(size - 1);
+            lastNode.setNext(newNode);
+        }
+        size++;
     }
 
     /**
@@ -66,6 +92,20 @@ public class MyLinkedList extends MyAbstractList {
     @Override
     public void insert(Object payload, int index) {
         /* TODO */
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Index out of range");
+        }
+        MyLinkedListNode newNode = new MyLinkedListNode(payload);
+        if (index == 0) {
+            newNode.setNext(head);
+            head = newNode;
+        } else {
+            MyLinkedListNode prevNode = getNodeByIndex(index - 1);
+            MyLinkedListNode currentNode = prevNode.getNext();
+            prevNode.setNext(newNode);
+            newNode.setNext(currentNode);
+        }
+        size++;
     }
 
     /**
@@ -75,6 +115,7 @@ public class MyLinkedList extends MyAbstractList {
     @Override
     public MyIterator iterator() {
         /* TODO */
+        return new MyLinkedListIterator(head);
     }
 
     /**
@@ -84,5 +125,13 @@ public class MyLinkedList extends MyAbstractList {
      */
     private MyLinkedListNode getNodeByIndex(int index) {
         /* TODO */
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index out of range");
+        }
+        MyLinkedListNode current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.getNext();
+        }
+        return current;
     }
 }

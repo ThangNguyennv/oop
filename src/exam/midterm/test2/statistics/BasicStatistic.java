@@ -122,7 +122,7 @@ public class BasicStatistic implements Statistic {
             while (j < length && Double.compare(pairs[j].value, pairs[i].value) == 0) {
                 j++;
             }
-            // Các phần tử trong khoảng [i, j-1] có cùng giá trị.
+            // Các phần tử trong khoảng [i, j - 1] có cùng giá trị.
             // Thứ hạng của phần tử đầu tiên trong nhóm là i + 1, của phần tử cuối là j.
             // Rank trung bình cho nhóm này là: ((i + 1) + j) / 2.0
             double avgRank = ((i + 1) + j) / 2.0;

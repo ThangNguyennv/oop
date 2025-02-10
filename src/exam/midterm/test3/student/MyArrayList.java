@@ -10,6 +10,8 @@ public class MyArrayList extends MyAbstractList {
      */
     public MyArrayList() {
         /* TODO */
+        data = new Object[DEFAULT_CAPACITY];
+        size = 0;
     }
 
     /**
@@ -19,6 +21,7 @@ public class MyArrayList extends MyAbstractList {
     @Override
     public int size() {
         /* TODO */
+        return size;
     }
 
     /**
@@ -29,6 +32,10 @@ public class MyArrayList extends MyAbstractList {
     @Override
     public Object get(int index) {
         /* TODO */
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+        return data[index];
     }
 
     /**
@@ -39,6 +46,10 @@ public class MyArrayList extends MyAbstractList {
     @Override
     public void set(Object payload, int index) {
         /* TODO */
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+        data[index] = payload;
     }
 
     /**
@@ -48,6 +59,14 @@ public class MyArrayList extends MyAbstractList {
     @Override
     public void remove(int index) {
         /* TODO */
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+        for (int i = index; i < size - 1; i++) {
+            data[i] = data[i + 1];
+        }
+        data[size - 1] = null;
+        size--;
     }
 
     /**
@@ -58,6 +77,10 @@ public class MyArrayList extends MyAbstractList {
     @Override
     public void append(Object payload) {
         /* TODO */
+        if (size == data.length) {
+            enlarge();
+        }
+        data[size++] = payload;
     }
 
     /**
@@ -69,6 +92,17 @@ public class MyArrayList extends MyAbstractList {
     @Override
     public void insert(Object payload, int index) {
         /* TODO */
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+        if (size == data.length) {
+            enlarge();
+        }
+        for (int i = size; i > index; i--) {
+            data[i] = data[i - 1];
+        }
+        data[index] = payload;
+        size++;
     }
 
     /**
@@ -78,6 +112,7 @@ public class MyArrayList extends MyAbstractList {
     @Override
     public MyIterator iterator() {
         /* TODO */
+        return new MyArrayListIterator(data, size);
     }
 
     /**
@@ -85,5 +120,8 @@ public class MyArrayList extends MyAbstractList {
      */
     private void enlarge() {
         /* TODO */
+        Object[] newData = new Object[data.length * 2];
+        System.arraycopy(data, 0, newData, 0, size);
+        data = newData;
     }
 }

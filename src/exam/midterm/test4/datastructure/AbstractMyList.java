@@ -9,6 +9,7 @@ public abstract class AbstractMyList implements MyList {
      */
     public boolean checkBoundaries(int index, int limit) {
         /* TODO */
+        return index >= 0 && index <= limit;
     }
 
     /**
@@ -18,5 +19,10 @@ public abstract class AbstractMyList implements MyList {
     @Override
     public String toString() {
         /* TODO */
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < size(); i++) {
+            sb.append(String.format("[%s]", get(i)));
+        }
+        return sb.toString();
     }
 }

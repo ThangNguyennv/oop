@@ -1,5 +1,7 @@
 package exam.midterm.test1.datastructure;
 
+import java.util.Random;
+
 public class App {
     public static void main(String[] args) {
         /*
@@ -20,40 +22,51 @@ public class App {
 
         testStack();
         testQueue();
-        // MyStack stack = new MyStack();
-        // Random random1 = new Random();
-        // Random random2 = new Random();
-        // int n = 15 + random1.nextInt(16);
-        // for (int i = 0; i < n; i++) {
-        //     int randomNumber = random2.nextInt();
-        //     stack.push(randomNumber);
-        // }
-        // System.out.println("Cac phan tu trong stack la: ");
-        // stack.printStack();
-        // System.out.println();
-        // while (!stack.isEmpty()) {
-        //     System.out.println("Phan tu bi xoa la: " + stack.pop());
-        //     System.out.println("Phan tu con lai la: ");
-        //     stack.printStack();
-        //     System.out.println();
-        // }
-        // MyQueue queue = new MyQueue();
-        // Random random1 = new Random();
-        // Random random2 = new Random();
-        // int n = 15 + random1.nextInt(16);
-        // for (int i = 0; i < n; i++) {
-        //     int randomNumber = random2.nextInt();
-        //     queue.add(randomNumber);
-        // }
-        // System.out.println("Cac phan tu trong queue la: ");
-        // queue.printQueue();
-        // System.out.println();
-        // while (!queue.isEmpty()) {
-        //     System.out.println("Phan tu bi xoa la: " + queue.remove());
-        //     System.out.println("Phan tu con lai la: ");
-        //     queue.printQueue();
-        //     System.out.println();
-        // }
+        MyStack stack = new MyStack();
+        Random random1 = new Random();
+        Random random2 = new Random();
+        int n1 = 15 + random1.nextInt(16);
+        for (int i = 0; i < n1; i++) {
+            int randomNumber = random2.nextInt();
+            stack.push(randomNumber);
+        }
+        System.out.println("Các phần tử trong myStack là: ");
+        stack.printStack();
+        System.out.println();
+        while (!stack.isEmpty()) {
+            System.out.println("Phần tử bị xóa là: " + stack.pop());
+            if (!stack.isEmpty()) {
+                System.out.println("Các phần tử hiện tại trong myStack là: ");
+                stack.printStack();
+                System.out.println();
+            } else {
+                System.out.println("myStack rỗng!!!");
+                return;
+            }
+        }
+
+        MyQueue queue = new MyQueue();
+        Random random3 = new Random();
+        Random random4 = new Random();
+        int n2 = 15 + random3.nextInt(16);
+        for (int i = 0; i < n2; i++) {
+            int randomNumber = random4.nextInt();
+            queue.add(randomNumber);
+        }
+        System.out.println("Các phần tử trong queue là: ");
+        queue.printQueue();
+        System.out.println();
+        while (!queue.isEmpty()) {
+            System.out.println("Phần tử bị xóa là: " + queue.remove());
+            if (!queue.isEmpty()) {
+                System.out.println("Các phần tử hiện tại trong queue là: ");
+                queue.printQueue();
+                System.out.println();
+            } else {
+                System.out.println("queue rỗng!!!");
+                return;
+            }
+        }
 
     }
 

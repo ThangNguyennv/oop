@@ -1,5 +1,9 @@
 package exam.midterm.test4.datastructure;
 
+import exam.midterm.test1.datastructure.MyQueue;
+
+import java.util.Random;
+
 public class App {
     public static void main(String[] args) {
         /* TODO
@@ -14,6 +18,8 @@ public class App {
           nộp lên classroom.
         */
 
+        testStack();
+        testQueue();
     }
 
     public static void testStack() {
@@ -23,6 +29,27 @@ public class App {
             + In ra các phần tử trong stack.
             + Lần lượt xóa các phần tử trong stack. Sau mỗi lần xóa, in ra các phần tử còn lại trong stack.
          */
+        MyStack myStack = new MyStack();
+        Random random = new Random();
+        int n = 20 + random.nextInt(11);
+        for (int i = 0; i < n; i++) {
+            int randomNumber = random.nextInt();
+            myStack.push(randomNumber);
+        }
+        System.out.println("Các phần tử trong myStack là: ");
+        myStack.printStack();
+        System.out.println();
+        while (!myStack.isEmpty()) {
+            System.out.println("Phần tử bị xóa là: " + myStack.pop());
+            if (!myStack.isEmpty()) {
+                System.out.println("Các phần tử hiện tại trong myStack là: ");
+                myStack.printStack();
+                System.out.println();
+            } else {
+                System.out.println("myStack rỗng!!!");
+                return;
+            }
+        }
     }
 
     public static void testQueue() {
@@ -32,5 +59,27 @@ public class App {
             + In ra các phần tử trong queue.
             + Lần lượt xóa các phần tử trong queue. Sau mỗi lần xóa, in ra các phần tử còn lại trong queue.
          */
+
+        MyQueue myQueue = new MyQueue();
+        Random random = new Random();
+        int n = 20 + random.nextInt(11);
+        for (int i = 0; i < n; i++) {
+            int randomNumber = random.nextInt();
+            myQueue.add(randomNumber);
+        }
+        System.out.println("Các phần tử trong myQueue là: ");
+        myQueue.printQueue();
+        System.out.println();
+        while (!myQueue.isEmpty()) {
+            System.out.println("Phần tử bị xóa là: " + myQueue.remove());
+            if (!myQueue.isEmpty()) {
+                System.out.println("Các phần tử hiện tại trong myQueue là: ");
+                myQueue.printQueue();
+                System.out.println();
+            } else {
+                System.out.println("myQueue rỗng!!!");
+                return;
+            }
+        }
     }
 }

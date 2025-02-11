@@ -47,20 +47,20 @@ public class TestStatistics {
         arrayDataSet.insert(123,0);
         arrayDataSet.append(100);
         statistic1.setDataSet(arrayDataSet);
+
         System.out.println("----- Thông tin tập dữ liệu ban đầu -----");
         printDataSet(statistic1);
         System.out.println();
         printStatistics(statistic1);
-
         System.out.println("------------------------------------------");
 
         arrayDataSet.remove(0);
         arrayDataSet.remove(arrayDataSet.size() - 1);
+
         System.out.println("----- Dữ liệu sau khi xóa các phần tử đầu và cuối -----");
         printDataSet(statistic1);
         System.out.println();
         printStatistics(statistic1);
-
         System.out.println("------------------------------------------");
 
         // Viết hàm test cho ListDataSet:
@@ -77,19 +77,21 @@ public class TestStatistics {
         listDataSet.insert(123,0);
         listDataSet.append(100);
         statistic2.setDataSet(listDataSet);
+
         System.out.println("----- Thông tin tập dữ liệu ban đầu -----");
         printDataSet(statistic2);
         System.out.println();
         printStatistics(statistic2);
-
         System.out.println("------------------------------------------");
 
         listDataSet.remove(0);
         listDataSet.remove(listDataSet.size() - 1);
+
         System.out.println("----- Dữ liệu sau khi xóa các phần tử đầu và cuối -----");
         printDataSet(statistic2);
         System.out.println();
         printStatistics(statistic2);
+        System.out.println("------------------------------------------");
     }
 
     public static void printDataSet(BasicStatistic statistic) {

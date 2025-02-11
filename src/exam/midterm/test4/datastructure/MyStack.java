@@ -13,6 +13,7 @@ public class MyStack {
      */
     public void push(int value) {
         /* TODO */
+        stackData.insertAtStart(value);
     }
 
     /**
@@ -21,6 +22,9 @@ public class MyStack {
      */
     public int pop() {
         /* TODO */
+        int value = stackData.get(0);
+        stackData.remove(0);
+        return value;
     }
 
     /**
@@ -29,6 +33,7 @@ public class MyStack {
      */
     public boolean isEmpty() {
         /* TODO */
+        return stackData.size() == 0;
     }
 
     /**
@@ -37,6 +42,7 @@ public class MyStack {
      */
     public int peek() {
         /* TODO */
+        return stackData.get(0);
     }
 
     /**
@@ -45,5 +51,13 @@ public class MyStack {
      */
     public int size() {
         /* TODO */
+        return stackData.size();
+    }
+
+    public void printStack() {
+        int[] array = stackData.toArray();
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
     }
 }

@@ -1,5 +1,6 @@
 package exam.midterm.test4.statistics;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListDataSet extends AbstractDataSet {
@@ -10,21 +11,37 @@ public class ListDataSet extends AbstractDataSet {
      */
     public ListDataSet() {
         /* TODO */
+        data = new ArrayList<>();
     }
 
     @Override
     public int size() {
         /* TODO */
+        return data.size();
     }
 
     @Override
     public double getAt(int index) {
         /* TODO */
+        if (index < 0 || index >= size()) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+        return data.get(index);
     }
 
     @Override
     public double[] getAll(int from, int to) {
         /* TODO */
+        if ((from < 0 || from >= size()) && (to < 0 || to >= size())) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+        int length = to - from + 1;
+        double[] newArray = new double[length];
+        int index = 0;
+        for (int i = from; i <= to; i++) {
+            newArray[index++] = data.get(i);
+        }
+        return newArray;
     }
 
     /**
@@ -34,6 +51,7 @@ public class ListDataSet extends AbstractDataSet {
     @Override
     public void append(double value) {
         /* TODO */
+        data.add(value);
     }
 
     /**
@@ -44,6 +62,10 @@ public class ListDataSet extends AbstractDataSet {
     @Override
     public void insert(int index, double value) {
         /* TODO */
+        if (index < 0 || index > size()) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+        data.add(index, value);
     }
 
     /**
@@ -53,6 +75,10 @@ public class ListDataSet extends AbstractDataSet {
     @Override
     public void remove(int index) {
         /* TODO */
+        if (index < 0 || index >= size()) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+        data.remove(index);
     }
 
     /**
@@ -62,5 +88,6 @@ public class ListDataSet extends AbstractDataSet {
     @Override
     public void remove(double value) {
         /* TODO */
+        data.remove(value);
     }
 }

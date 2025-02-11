@@ -10,6 +10,8 @@ public class MyArrayList extends AbstractMyList {
      */
     public MyArrayList() {
         /* TODO */
+        data = new int[DEFAULT_CAPACITY];
+        size = 0;
     }
 
     /**
@@ -19,6 +21,7 @@ public class MyArrayList extends AbstractMyList {
     @Override
     public int size() {
         /* TODO */
+        return this.size;
     }
 
     /**
@@ -29,6 +32,10 @@ public class MyArrayList extends AbstractMyList {
     @Override
     public int get(int index) {
         /* TODO */
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+        return data[index];
     }
 
     /**
@@ -39,6 +46,10 @@ public class MyArrayList extends AbstractMyList {
     @Override
     public void set(int data, int index) {
         /* TODO */
+        if (!checkBoundaries(index, size - 1)) {
+            throw new IndexOutOfBoundsException("Chỉ số không hợp lệ!!!");
+        }
+        this.data[index] = data;
     }
 
     /**
@@ -49,6 +60,14 @@ public class MyArrayList extends AbstractMyList {
     @Override
     public void insertAtStart(int value) {
         /* TODO */
+        if (size == data.length) {
+            allocateMore();
+        }
+        for (int i = size; i > 0; i--) {
+            data[i] = data[i - 1];
+        }
+        data[0] = value;
+        size++;
     }
 
     /**
@@ -59,6 +78,11 @@ public class MyArrayList extends AbstractMyList {
     @Override
     public void insertAtEnd(int value) {
         /* TODO */
+        if (size == data.length) {
+            allocateMore();
+        }
+        data[size] = value;
+        size++;
     }
 
     /**
@@ -70,6 +94,17 @@ public class MyArrayList extends AbstractMyList {
     @Override
     public void insertAtPosition(int value, int index) {
         /* TODO */
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+        if (size == data.length) {
+            allocateMore();
+        }
+        for (int i = size; i > index; i--) {
+            data[i] = data[i - 1];
+        }
+        data[index] = value;
+        size++;
     }
 
     /**
@@ -80,6 +115,13 @@ public class MyArrayList extends AbstractMyList {
     @Override
     public void remove(int index) {
         /* TODO */
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+        for (int i = index; i < size - 1; i++) {
+            data[i] = data[i + 1];
+        }
+        size--;
     }
 
     /**
@@ -87,6 +129,9 @@ public class MyArrayList extends AbstractMyList {
      */
     private void allocateMore() {
         /* TODO */
+        int[] newData = new int[data.length * 2];
+        System.arraycopy(data, 0, newData, 0, size);
+        data = newData;
     }
 
     /**
@@ -96,5 +141,10 @@ public class MyArrayList extends AbstractMyList {
     @Override
     public int[] toArray() {
         /* TODO */
+        int[] result = new int[size];
+        for (int i = 0; i < size; i++) {
+            result[i] = data[i];
+        }
+        return result;
     }
 }

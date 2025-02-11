@@ -10,21 +10,38 @@ public class ArrayDataSet extends AbstractDataSet {
      */
     public ArrayDataSet() {
         /* TODO */
+        data = new double[DEFAULT_CAPACITY];
+        size = 0;
     }
 
     @Override
     public int size() {
         /* TODO */
+        return this.size;
     }
 
     @Override
     public double getAt(int index) {
         /* TODO */
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+        return data[index];
     }
 
     @Override
     public double[] getAll(int from, int to) {
         /* TODO */
+        if (from < 0 || from >= size || to < 0 || to >= size) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+        int length = to - from + 1;
+        int index = 0;
+        double[] newArray = new double[length];
+        for (int i = from; i <= to; i++) {
+            newArray[index++] = data[i];
+        }
+        return newArray;
     }
 
     /**
@@ -35,6 +52,11 @@ public class ArrayDataSet extends AbstractDataSet {
     @Override
     public void append(double value) {
         /* TODO */
+        if (size == data.length) {
+            allocateMore();
+        }
+        data[size] = value;
+        size++;
     }
 
     /**
@@ -46,6 +68,17 @@ public class ArrayDataSet extends AbstractDataSet {
     @Override
     public void insert(int index, double value) {
         /* TODO */
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+        if (size == data.length) {
+            allocateMore();
+        }
+        for (int i = size; i > index; i--) {
+            data[i] = data[i - 1];
+        }
+        data[index] = value;
+        size++;
     }
 
     /**
@@ -55,6 +88,13 @@ public class ArrayDataSet extends AbstractDataSet {
     @Override
     public void remove(int index) {
         /* TODO */
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+        for (int i = index; i < size - 1; i++) {
+            data[i] = data[i + 1];
+        }
+        size--;
     }
 
     /**
@@ -64,6 +104,11 @@ public class ArrayDataSet extends AbstractDataSet {
     @Override
     public void remove(double value) {
         /* TODO */
+        for (int i = 0; i < size; i++) {
+            if (data[i] == value) {
+                remove(i);
+            }
+        }
     }
 
     /**
@@ -71,5 +116,8 @@ public class ArrayDataSet extends AbstractDataSet {
      */
     private void allocateMore() {
         /* TODO */
+        double[] newData = new double[data.length * 2];
+        System.arraycopy(data, 0, newData, 0, size);
+        data = newData;
     }
 }

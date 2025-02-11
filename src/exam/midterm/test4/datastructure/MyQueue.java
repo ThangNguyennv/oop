@@ -13,6 +13,7 @@ public class MyQueue {
      */
     public void add(int value) {
         /* TODO */
+        queueData.insertAtEnd(value);
     }
 
     /**
@@ -21,6 +22,9 @@ public class MyQueue {
      */
     public int remove() {
         /* TODO */
+        int value = queueData.get(0);
+        queueData.remove(0);
+        return value;
     }
 
     /**
@@ -29,6 +33,7 @@ public class MyQueue {
      */
     public boolean isEmpty() {
         /* TODO */
+        return queueData.size() == 0;
     }
 
     /**
@@ -37,6 +42,7 @@ public class MyQueue {
      */
     public int peek() {
         /* TODO */
+        return queueData.get(0);
     }
 
     /**
@@ -45,5 +51,13 @@ public class MyQueue {
      */
     public int size() {
         /* TODO */
+        return queueData.size();
+    }
+
+    public void printQueue() {
+        int[] array = queueData.toArray();
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
     }
 }

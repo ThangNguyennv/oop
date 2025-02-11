@@ -9,7 +9,7 @@ public class TestMyList {
          * (ví dụ, NguyenVanA_123456_MyList.txt)
          */
 
-        testMyArrayList();
+//        testMyArrayList();
         testMyLinkedList();
     }
 

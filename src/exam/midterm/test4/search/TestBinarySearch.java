@@ -1,5 +1,7 @@
 package exam.midterm.test4.search;
 
+import java.util.Random;
+
 public class TestBinarySearch {
     public static void main(String[] args) {
         /* Yêu cầu:
@@ -24,5 +26,60 @@ public class TestBinarySearch {
           <TenSinhVien_MaSinhVien_BinarySearch>.zip (Ví dụ, NguyenVanA_123456_BinarySearch.zip),
           nộp lên classroom
          */
+
+        Random random1 = new Random();
+        Random random2 = new Random();
+        int arrayLength = 10 + random1.nextInt(11);
+        double[] array1 = new double[arrayLength];
+        double[] array2 = new double[arrayLength];
+        double[] array3 = new double[arrayLength];
+
+        for (int i = 0; i < arrayLength; i++) {
+            double element = random2.nextDouble();
+            array1[i] = element;
+            array2[i] = element;
+            array3[i] = element;
+        }
+
+        BinarySearch binarySearch = new BinarySearch();
+        Sorter bubbleSort = new BubbleSort();
+        Sorter insertionSort = new InsertionSort();
+        Sorter selectionSort = new SelectionSort();
+
+        System.out.println("Using Bubble Sort Algorithm:");
+        System.out.print("Before sorting: [");
+        binarySearch.printArray(array1);
+        System.out.println("]");
+        bubbleSort.sort(array1, true);
+        System.out.print("After sorting: [");
+        binarySearch.printArray(array1);
+        System.out.println("]");
+        System.out.println("Binary search giá trị: " + binarySearch.search(array1, 3));
+
+        System.out.println("----------------------------------------");
+        binarySearch.setSorter(insertionSort);
+
+        System.out.println("Using Insertion Sort Algorithm:");
+        System.out.print("Before sorting: [");
+        binarySearch.printArray(array2);
+        System.out.println("]");
+        insertionSort.sort(array2, true);
+        System.out.print("After sorting: [");
+        binarySearch.printArray(array2);
+        System.out.println("]");
+        System.out.println("Binary search giá trị: " + binarySearch.search(array2, 3));
+
+        System.out.println("----------------------------------------");
+        binarySearch.setSorter(selectionSort);
+
+        System.out.println("Using Insertion Sort Algorithm:");
+        System.out.print("Before sorting: [");
+        binarySearch.printArray(array3);
+        System.out.println("]");
+        selectionSort.sort(array3, true);
+        System.out.print("After sorting: [");
+        binarySearch.printArray(array3);
+        System.out.println("]");
+        System.out.println("Binary search giá trị: " + binarySearch.search(array3, 3));
     }
 }

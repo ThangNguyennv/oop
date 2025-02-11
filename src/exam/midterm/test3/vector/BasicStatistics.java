@@ -38,7 +38,7 @@ public class BasicStatistics {
 
         testArrayVector();
         System.out.println();
-
+        
         testListVector();
         System.out.println();
 

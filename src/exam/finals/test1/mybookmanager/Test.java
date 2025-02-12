@@ -10,7 +10,8 @@ public class Test {
         myList.insertAtEnd(1);
         myList.insertAtEnd(7);
         myList.insertAtStart(2);
-        myList.insertAtPosition(6, 1);
+        myList.printList();
+        myList.insertAtPosition(6, 6);
         myList.printList();
     }
 }

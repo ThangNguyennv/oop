@@ -122,7 +122,7 @@ public class MyLinkedList extends AbstractMyList {
     @Override
     public void insertAtPosition(Object value, int index) {
         /* TODO */
-        if (!checkBoundaries(index, size - 1)) {
+        if (!checkBoundaries(index, size)) {
             throw new IndexOutOfBoundsException();
         }
         if (index == 0) {
@@ -196,5 +196,6 @@ public class MyLinkedList extends AbstractMyList {
             current = current.getNext();
         }
         System.out.println("null");
+        return;
     }
 }

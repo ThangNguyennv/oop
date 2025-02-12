@@ -25,6 +25,7 @@ public class BookManager {
 
     /**
      * Thêm book vào đầu danh sách.
+     *
      * @param book
      */
     public void insertAtStart(Book book) {
@@ -34,47 +35,58 @@ public class BookManager {
 
     /**
      * Thêm book vào cuối danh sách.
+     *
      * @param book
      */
     public void insertAtEnd(Book book) {
         /* TODO */
-        bookList.insertAtEnd(book);
+        bookList.append(book);
     }
 
     /**
      * Thêm book vào danh sách ở vị trí index.
+     *
      * @param book
      * @param index
      */
     public void insertAPosition(Book book, int index) {
         /* TODO */
+        if (index < 0 || index > bookList.size()) {
+            throw new IndexOutOfBoundsException();
+        }
         bookList.insertAtPosition(book, index);
     }
 
     /**
      * Xóa book ở vị trí index.
+     *
      * @param index
      */
     public void remove(int index) {
         /* TODO */
+        if (index < 0 || index >= bookList.size()) {
+            throw new IndexOutOfBoundsException();
+        }
         bookList.remove(index);
     }
 
     /**
      * Lấy ra book ở vị trí index
+     *
      * @param index
      * @return
      */
     public Book bookAt(int index) {
         /* TODO */
-        if (index >= 0 && index < bookList.size()) {
-            return (Book) bookList.get(index);
+        if (index < 0 || index >= bookList.size()) {
+            throw new IndexOutOfBoundsException();
         }
-        return null;
+        return (Book) bookList.get(index);
     }
 
     /**
      * Lấy ra sách có giá cao nhất.
+     *
      * @return
      */
     public Book highestPriceBook() {
@@ -82,18 +94,19 @@ public class BookManager {
             return null; // or throw an exception, based on your requirement
         }
 
-        Book highestPriceBook = (Book)bookList.get(0);
+        Book highestPriceBook = (Book) bookList.get(0);
         for (int i = 1; i < bookList.size(); i++) {
-            Book book = ((Book)bookList.get(i));
+            Book book = ((Book) bookList.get(i));
             if (book.getPrice() > highestPriceBook.getPrice()) {
                 highestPriceBook = book;
             }
         }
         return highestPriceBook;
-    } 
+    }
 
     /**
      * Lấy ra sách có giá thấp nhất.
+     *
      * @return
      */
     public Book lowestPriceBook() {
@@ -101,9 +114,9 @@ public class BookManager {
             return null; // or throw an exception, based on your requirement
         }
 
-        Book lowestPriceBook = (Book)bookList.get(0);
+        Book lowestPriceBook = (Book) bookList.get(0);
         for (int i = 1; i < bookList.size(); i++) {
-            Book book = ((Book)bookList.get(i));
+            Book book = ((Book) bookList.get(i));
             if (book.getPrice() < lowestPriceBook.getPrice()) {
                 lowestPriceBook = book;
             }
@@ -113,6 +126,7 @@ public class BookManager {
 
     /**
      * Lấy ra sách có số trang cao nhất.
+     *
      * @return
      */
     public Book highestNumberOfPagesBook() {
@@ -120,9 +134,9 @@ public class BookManager {
             return null; // or throw an exception, based on your requirement
         }
 
-        Book highestNumberOfPagesBook = (Book)bookList.get(0);
+        Book highestNumberOfPagesBook = (Book) bookList.get(0);
         for (int i = 1; i < bookList.size(); i++) {
-            Book book = ((Book)bookList.get(i));
+            Book book = ((Book) bookList.get(i));
             if (book.getPages() > highestNumberOfPagesBook.getPages()) {
                 highestNumberOfPagesBook = book;
             }
@@ -132,6 +146,7 @@ public class BookManager {
 
     /**
      * Lấy ra sách có số trang thấp nhất.
+     *
      * @return
      */
     public Book lowestNumberOfPagesBook() {
@@ -139,9 +154,9 @@ public class BookManager {
             return null; // or throw an exception, based on your requirement
         }
 
-        Book lowestNumberOfPagesBook = (Book)bookList.get(0);
+        Book lowestNumberOfPagesBook = (Book) bookList.get(0);
         for (int i = 1; i < bookList.size(); i++) {
-            Book book = ((Book)bookList.get(i));
+            Book book = ((Book) bookList.get(i));
             if (book.getPages() < lowestNumberOfPagesBook.getPages()) {
                 lowestNumberOfPagesBook = book;
             }
@@ -151,47 +166,50 @@ public class BookManager {
 
     /**
      * Lọc ra những book theo nhà xuất bản.
+     *
      * @param publisher
      * @return
      */
     public MyList filterBooksOfPublisher(String publisher) {
         /* TODO */
         MyList listBooksOfPublisher = new MyLinkedList();
-        for(int i = 0; i < bookList.size(); i++) {
-            if((((Book)bookList.get(i)).getPublisher()).equals(publisher)) {
+        for (int i = 0; i < bookList.size(); i++) {
+            if ((((Book) bookList.get(i)).getPublisher()).equals(publisher)) {
                 listBooksOfPublisher.insertAtEnd(bookList.get(i));
             }
-    }
+        }
         return listBooksOfPublisher;
     }
-    
+
 
     /**
      * Lọc ra những book theo thể loại.
+     *
      * @param genre
      * @return
      */
     public MyList filterBooksOfGenre(String genre) {
         /* TODO */
         MyList listBooksOfGenre = new MyLinkedList();
-        for(int i = 0; i < bookList.size(); i++) {
-                if((((Book)bookList.get(i)).getGenre()).equals(genre)) {
-                    listBooksOfGenre.insertAtEnd(bookList.get(i));
-                }
+        for (int i = 0; i < bookList.size(); i++) {
+            if ((((Book) bookList.get(i)).getGenre()).equals(genre)) {
+                listBooksOfGenre.insertAtEnd(bookList.get(i));
+            }
         }
         return listBooksOfGenre;
     }
 
     /**
      * Lọc ra những book theo tác giả.
+     *
      * @param author
      * @return
      */
     public MyList filterBooksOfAuthor(String author) {
         /* TODO */
         MyList listBooksOfAuthor = new MyLinkedList();
-        for(int i = 0; i < bookList.size(); i++) {
-            if((((Book)bookList.get(i)).getAuthor()).equals(author)) {
+        for (int i = 0; i < bookList.size(); i++) {
+            if ((((Book) bookList.get(i)).getAuthor()).equals(author)) {
                 listBooksOfAuthor.insertAtEnd(bookList.get(i));
             }
         }

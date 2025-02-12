@@ -33,7 +33,7 @@ public class App {
          * Yêu cầu:
          * - Hoàn thiện code chương trình theo mẫu đã cho.
          * - Viết code để test cho tất cả các hàm test bên dưới.
-         * 
+         *
          * - Thực hiện chạy từng hàm test, lưu kết quả chạy chương trình và file text
          * được đặt tên
          * là <TenSinhVien_MaSinhVien_BookManager>.txt (Ví dụ,
@@ -72,7 +72,7 @@ public class App {
                  * TODO
                  * Đọc được dữ liệu, tạo ra các đối tượng sinh viên ở đây, và cho vào
                  * bookManager để quản lý.
-                 * 
+                 *
                  * Gợi ý:
                  * Các đội tượng Book không thể được tạo trực tiếp ở đây do hàm dựng là private,
                  * các đối tượng này được tạo ra bằng cách sử dụng Builder Pattern, ví dụ theo

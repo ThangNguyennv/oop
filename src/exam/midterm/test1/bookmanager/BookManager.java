@@ -34,7 +34,9 @@ public class BookManager {
      */
     public void append(Book book) {
         /* TODO */
-        bookList.add(book);
+        if (book != null) {
+            bookList.add(book);
+        }
     }
 
     /**
@@ -45,6 +47,12 @@ public class BookManager {
      */
     public void add(Book book, int index) {
         /* TODO */
+        if (book == null) {
+            throw new NullPointerException();
+        }
+        if (!checkBoundaries(index, bookList.size())) {
+            throw new IndexOutOfBoundsException();
+        }
         bookList.add(index, book);
     }
 
@@ -55,6 +63,9 @@ public class BookManager {
      */
     public void remove(int index) {
         /* TODO */
+        if (!checkBoundaries(index, bookList.size() - 1)) {
+            throw new IndexOutOfBoundsException();
+        }
         bookList.remove(index);
     }
 
@@ -65,7 +76,9 @@ public class BookManager {
      */
     public void remove(Book book) {
         /* TODO */
-        bookList.remove(book);
+        if (book != null) {
+            bookList.remove(book);
+        }
     }
 
     /**
@@ -76,10 +89,10 @@ public class BookManager {
      */
     public Book bookAt(int index) {
         /* TODO */
-        if (checkBoundaries(index, bookList.size() - 1)) {
-            return bookList.get(index);
+        if (!checkBoundaries(index, bookList.size() - 1)) {
+            throw new IndexOutOfBoundsException();
         }
-        return null;
+        return bookList.get(index);
     }
 
     /**

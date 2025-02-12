@@ -1,6 +1,6 @@
 package exam.midterm.test5.studentmanager;
 
-public class Student {
+public class Student implements StudentComparable {
     private String id;
     private String lastname;
     private String firstname;
@@ -10,6 +10,15 @@ public class Student {
     private double chemistryGrade;
 
     private Student() {
+    }
+
+    @Override
+    public int compareTo(Student another) {
+        if (this.firstname.compareTo(another.firstname) != 0) {
+            return this.firstname.compareTo(another.firstname);
+        } else {
+            return this.lastname.compareTo(another.lastname);
+        }
     }
 
     public static class StudentBuilder {
@@ -113,5 +122,19 @@ public class Student {
     public double getAverageGrade() {
         /* TODO */
         return getChemistryGrade() + getMathsGrade() + getPhysicsGrade() / 3;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id='" + id + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", yearOfBirth=" + yearOfBirth +
+                ", mathsGrade=" + mathsGrade +
+                ", physicsGrade=" + physicsGrade +
+                ", chemistryGrade=" + chemistryGrade +
+                ", averageGrade=" + getAverageGrade() +
+                '}';
     }
 }

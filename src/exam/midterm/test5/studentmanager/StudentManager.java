@@ -1,6 +1,7 @@
 package exam.midterm.test5.studentmanager;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class StudentManager {
@@ -24,7 +25,7 @@ public class StudentManager {
 
     public List<Student> getStudentList() {
         /* TODO */
-        return studentList;
+        return new ArrayList<>(studentList);
     }
 
     /**
@@ -33,7 +34,9 @@ public class StudentManager {
      */
     public void append(Student student) {
         /* TODO */
-       studentList.add(student);
+        if (student != null) {
+            studentList.add(student);
+        }
     }
 
     /**
@@ -43,7 +46,10 @@ public class StudentManager {
      */
     public void add(Student student, int index) {
         /* TODO */
-        if (index < 0 || index >= studentList.size()) {
+        if (student == null) {
+            throw new NullPointerException("Student cannot be null");
+        }
+        if (index < 0 || index > studentList.size()) {
             throw new IndexOutOfBoundsException();
         }
         studentList.add(index, student);
@@ -55,7 +61,7 @@ public class StudentManager {
      */
     public void remove(int index) {
         /* TODO */
-        if (index < 0 || index > studentList.size()) {
+        if (index < 0 || index >= studentList.size()) {
             throw new IndexOutOfBoundsException();
         }
         studentList.remove(index);
@@ -67,7 +73,9 @@ public class StudentManager {
      */
     public void remove(Student student) {
         /* TODO */
-        studentList.remove(student);
+        if (student != null) {
+            studentList.remove(student);
+        }
     }
 
     /**
@@ -77,6 +85,9 @@ public class StudentManager {
      */
     public Student studentAt(int index) {
         /* TODO */
+        if (index < 0 || index >= studentList.size()) {
+            throw new IndexOutOfBoundsException();
+        }
         return studentList.get(index);
     }
 
@@ -88,6 +99,9 @@ public class StudentManager {
      */
     public List<Student> sortStudentByName() {
         /* TODO */
+        List<Student> sortedList = getStudentList();
+        Collections.sort(sortedList);
+        return sortedList;
     }
 
     /**
@@ -97,6 +111,14 @@ public class StudentManager {
      */
     public List<Student> sortMathsGradeIncreasing() {
         /* TODO */
+        List<Student> sortedList = getStudentList();
+        Collections.sort(sortedList, new StudentComparator() {
+            @Override
+            public int compare(Student left, Student right) {
+                return Double.compare(left.getMathsGrade(), right.getMathsGrade());
+            }
+        });
+        return sortedList;
     }
 
     /**
@@ -106,6 +128,14 @@ public class StudentManager {
      */
     public List<Student> sortMathsGradeDecreasing() {
         /* TODO */
+        List<Student> sortedList = getStudentList();
+        Collections.sort(sortedList, new StudentComparator() {
+            @Override
+            public int compare(Student left, Student right) {
+                return Double.compare(right.getMathsGrade(), left.getMathsGrade());
+            }
+        });
+        return sortedList;
     }
 
     /**
@@ -115,6 +145,14 @@ public class StudentManager {
      */
     public List<Student> sortPhysicsGradeIncreasing() {
         /* TODO */
+        List<Student> sortedList = getStudentList();
+        Collections.sort(sortedList, new StudentComparator() {
+            @Override
+            public int compare(Student left, Student right) {
+                return Double.compare(left.getPhysicsGrade(), right.getPhysicsGrade());
+            }
+        });
+        return sortedList;
     }
 
     /**
@@ -124,6 +162,14 @@ public class StudentManager {
      */
     public List<Student> sortPhysicsGradeDecreasing() {
         /* TODO */
+        List<Student> sortedList = getStudentList();
+        Collections.sort(sortedList, new StudentComparator() {
+            @Override
+            public int compare(Student left, Student right) {
+                return Double.compare(right.getPhysicsGrade(), left.getPhysicsGrade());
+            }
+        });
+        return sortedList;
     }
 
     /**
@@ -133,7 +179,14 @@ public class StudentManager {
      */
     public List<Student> sortChemistryGradeIncreasing() {
         /* TODO */
-
+        List<Student> sortedList = getStudentList();
+        Collections.sort(sortedList, new StudentComparator() {
+            @Override
+            public int compare(Student left, Student right) {
+                return Double.compare(left.getChemistryGrade(), right.getChemistryGrade());
+            }
+        });
+        return sortedList;
     }
 
     /**
@@ -143,6 +196,14 @@ public class StudentManager {
      */
     public List<Student> sortChemistryGradeDecreasing() {
         /* TODO */
+        List<Student> sortedList = getStudentList();
+        Collections.sort(sortedList, new StudentComparator() {
+            @Override
+            public int compare(Student left, Student right) {
+                return Double.compare(right.getChemistryGrade(), left.getChemistryGrade());
+            }
+        });
+        return sortedList;
     }
 
     /**
@@ -152,6 +213,14 @@ public class StudentManager {
      */
     public List<Student> sortAverageGradeIncreasing() {
         /* TODO */
+        List<Student> sortedList = getStudentList();
+        Collections.sort(sortedList, new StudentComparator() {
+            @Override
+            public int compare(Student left, Student right) {
+                return Double.compare(left.getAverageGrade(), right.getAverageGrade());
+            }
+        });
+        return sortedList;
     }
 
     /**
@@ -161,6 +230,14 @@ public class StudentManager {
      */
     public List<Student> sortAverageGradeDecreasing() {
         /* TODO */
+        List<Student> sortedList = getStudentList();
+        Collections.sort(sortedList, new StudentComparator() {
+            @Override
+            public int compare(Student left, Student right) {
+                return Double.compare(right.getAverageGrade(), left.getAverageGrade());
+            }
+        });
+        return sortedList;
     }
 
     /**
@@ -170,6 +247,12 @@ public class StudentManager {
      */
     public List<Student> filterStudentsHighestAverageGrade(int howMany) {
         /* TODO */
+        List<Student> list = sortAverageGradeDecreasing();
+        List<Student> result = new ArrayList<>();
+        for (int i = 0; i < howMany; i++) {
+            result.add(list.get(i));
+        }
+        return result;
     }
 
     /**
@@ -179,6 +262,12 @@ public class StudentManager {
      */
     public List<Student> filterStudentsLowestAverageGrade(int howMany) {
         /* TODO */
+        List<Student> list = sortAverageGradeIncreasing();
+        List<Student> result = new ArrayList<>();
+        for (int i = 0; i < howMany; i++) {
+            result.add(list.get(i));
+        }
+        return result;
     }
 
     public static String idOfStudentsToString(List<Student> countryList) {

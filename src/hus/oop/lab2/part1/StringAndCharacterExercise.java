@@ -23,7 +23,7 @@ public class StringAndCharacterExercise {
     public static int countVowels(String inStr) {
         int count = 0;
         for (int charIdx = 0; charIdx < inStr.length(); charIdx++) {
-            if (Character.isAlphabetic(inStr.charAt(charIdx)) == true) {
+            if (Character.isAlphabetic(inStr.charAt(charIdx))) {
                 switch (inStr.charAt(charIdx)) {
                     case 'u':
                         count++;
@@ -51,7 +51,7 @@ public class StringAndCharacterExercise {
     public static int countDigits(String inStr) {
         int count = 0;
         for (int charIdx = 0; charIdx < inStr.length(); charIdx++) {
-            if (Character.isDigit(inStr.charAt(charIdx)) == true) {
+            if (Character.isDigit(inStr.charAt(charIdx))) {
                 count++;
             }
         }
@@ -172,7 +172,7 @@ public class StringAndCharacterExercise {
     public static void testCipherCaesarCode(Scanner sc) {
         System.out.print("Enter a plaintext String: ");
         String inStr = sc.nextLine().toUpperCase();
-        System.out.print("The ciphertext string is: ");
+        System.out.print("The cipherText string is: ");
         cipherCaesarCode(inStr);
         System.out.println();
     }
@@ -211,7 +211,7 @@ public class StringAndCharacterExercise {
         System.out.print("Enter is hex string: ");
         String inStr = sc.nextLine();
         System.out.println();
-        if (isHexString(inStr) == true) {
+        if (isHexString(inStr)) {
             System.out.println("\"" + inStr + "\"" + " is a hex string");
         } else {
             System.out.println("\"" + inStr + "\"" + " is NOT a hex string");
@@ -252,7 +252,7 @@ public class StringAndCharacterExercise {
             }
             check = true;
         }
-        if (check == true) {
+        if (check) {
             System.out.println("The equivalent decimal number for binary " +
                     "\"" + str + "\"" + " is: " + binaryToDecimalVersion2(str));
         } else {
@@ -305,7 +305,7 @@ public class StringAndCharacterExercise {
         System.out.print("Enter a Hexadecimal string: ");
         String str = sc.nextLine();
         String newStr = str.toUpperCase();
-        if (checkHexCharToDecimal(newStr) == true) {
+        if (checkHexCharToDecimal(newStr)) {
             System.out.print("The equivalent decimal number for hexadecimal " + "\"" + str + "\"" + " is: ");
             hexadecimalToDecimalVersion2(newStr);
         } else {

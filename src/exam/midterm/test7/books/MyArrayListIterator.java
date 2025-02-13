@@ -1,4 +1,4 @@
-package exam.midterm.test3.student;
+package exam.midterm.test7.books;
 
 import java.util.NoSuchElementException;
 
@@ -20,6 +20,7 @@ public class MyArrayListIterator implements MyIterator {
     /**
      * Khởi tạo dữ liệu cho Iterator bằng dữ liệu của MyArrayList để nó có thể duyệt qua các phần tử dữ liệu
      * của MyArrayList.
+     *
      * @param data
      */
     public MyArrayListIterator(Object[] data, int size) {
@@ -32,6 +33,7 @@ public class MyArrayListIterator implements MyIterator {
     /**
      * Kiểm tra trong MyArrayList có còn phần tử tiếp theo không.
      * Nếu còn thì trả về true, nếu không còn thì trả về false.
+     *
      * @return
      */
     @Override
@@ -42,6 +44,7 @@ public class MyArrayListIterator implements MyIterator {
 
     /**
      * iterator dịch chuyển sang phần tử kế tiếp của MyArrayList và trả ra phần tử hiện tại của MyArrayList.
+     *
      * @return phần tử hiện tại.
      */
     @Override

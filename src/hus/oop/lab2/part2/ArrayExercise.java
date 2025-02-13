@@ -7,7 +7,7 @@ public class ArrayExercise {
     public static int[] createArray(Scanner in) {
         System.out.print("Enter the number of items: ");
         int NUM_ITEMS = in.nextInt();
-        int items[] = new int[NUM_ITEMS];
+        int[] items = new int[NUM_ITEMS];
         System.out.print("Enter the value of all items (separated by space): ");
         for (int itemsIdx = 0; itemsIdx < NUM_ITEMS; itemsIdx++) {
             items[itemsIdx] = in.nextInt();
@@ -28,7 +28,7 @@ public class ArrayExercise {
     public static int[] generateStudentGrades(Scanner in) {
         System.out.print("Enter the number of students: ");
         int numStudents = in.nextInt();
-        int arrayGrades[] = new int[numStudents];
+        int[] arrayGrades = new int[numStudents];
         for (int arrIdx = 0; arrIdx < numStudents; arrIdx++) {
             System.out.print("Enter the number of student" + (arrIdx + 1) + ": ");
             arrayGrades[arrIdx] = in.nextInt();
@@ -163,13 +163,10 @@ public class ArrayExercise {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int[] array = createArray(sc);
 
-        int[] items = createArray(sc);
-        printArray(items);
-
-        int[] arr1 = generateStudentGrades(sc);
-        simpleGradesStatistics(arr1);
-
+        printArray(array);
+        simpleGradesStatistics(array);
         testHexadecimalToBinary(sc);
         testDecimalToHexadecimal(sc);
     }

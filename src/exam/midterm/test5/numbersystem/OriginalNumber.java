@@ -1,5 +1,6 @@
 package exam.midterm.test5.numbersystem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class OriginalNumber {
@@ -9,22 +10,29 @@ public class OriginalNumber {
 
     public OriginalNumber(String originalNumber, int radix) {
         /* TODO */
+        numberPresentation = originalNumber;
+        this.radix = radix;
+        converters = new ArrayList<>();
     }
 
     /**
      * Thêm vào converter để quan sát số ban đầu.
+     *
      * @param converter
      */
     public void addConverter(NumberConverter converter) {
         /* TODO */
+        converters.add(converter);
     }
 
     /**
      * Hủy quan sát số ban đầu của converter.
+     *
      * @param converter
      */
     public void removeConverter(NumberConverter converter) {
         /* TODO */
+        converters.remove(converter);
     }
 
     /**
@@ -33,22 +41,31 @@ public class OriginalNumber {
      */
     public void notifyConverters() {
         /* TODO */
+        for (NumberConverter converter : converters) {
+            converter.update();  // Giả sử phương thức update nhận đối tượng OriginalNumber làm tham số
+        }
     }
 
     public String getNumberPresentation() {
         /* TODO */
+        return numberPresentation;
     }
 
     public void setNumberPresentation(String numberPresentation) {
         /* TODO */
+        this.numberPresentation = numberPresentation;
+        onStateChanged();
     }
 
     public int getRadix() {
         /* TODO */
+        return radix;
     }
 
     public void setRadix(int radix) {
         /* TODO */
+        this.radix = radix;
+        onStateChanged();
     }
 
     /**
@@ -58,5 +75,6 @@ public class OriginalNumber {
      */
     private void onStateChanged() {
         /* TODO */
+        notifyConverters();
     }
 }

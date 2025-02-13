@@ -46,6 +46,7 @@ public class TestBinarySearch {
         Sorter insertionSort = new InsertionSort();
         Sorter selectionSort = new SelectionSort();
 
+        System.out.println("----------------------------------------");
         System.out.println("Using Bubble Sort Algorithm:");
         System.out.print("Before sorting: [");
         binarySearch.printArray(array1);
@@ -55,10 +56,11 @@ public class TestBinarySearch {
         binarySearch.printArray(array1);
         System.out.println("]");
         System.out.println("Binary search giá trị: " + binarySearch.search(array1, 3));
-
         System.out.println("----------------------------------------");
+
         binarySearch.setSorter(insertionSort);
 
+        System.out.println("----------------------------------------");
         System.out.println("Using Insertion Sort Algorithm:");
         System.out.print("Before sorting: [");
         binarySearch.printArray(array2);
@@ -68,10 +70,11 @@ public class TestBinarySearch {
         binarySearch.printArray(array2);
         System.out.println("]");
         System.out.println("Binary search giá trị: " + binarySearch.search(array2, 3));
-
         System.out.println("----------------------------------------");
+
         binarySearch.setSorter(selectionSort);
 
+        System.out.println("----------------------------------------");
         System.out.println("Using Insertion Sort Algorithm:");
         System.out.print("Before sorting: [");
         binarySearch.printArray(array3);
@@ -81,5 +84,6 @@ public class TestBinarySearch {
         binarySearch.printArray(array3);
         System.out.println("]");
         System.out.println("Binary search giá trị: " + binarySearch.search(array3, 3));
+        System.out.println("----------------------------------------");
     }
 }

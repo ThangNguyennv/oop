@@ -1,5 +1,6 @@
 package hus.oop.lab2.part3;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class MethodExercise {
@@ -36,7 +37,7 @@ public class MethodExercise {
         int number = in.nextInt();
         int sum = 0;
         while (number != -1) {
-            if (hasEight(number) == true) {
+            if (hasEight(number)) {
                 sum += number;
             }
             System.out.print("Enter a positive integer (or -1 to end): ");
@@ -51,7 +52,7 @@ public class MethodExercise {
         for (int i = 1; i < array.length - 1; i++) {
             System.out.print(array[i] + ",");
         }
-        System.out.println(array[array.length - 1]);
+        System.out.println(array[array.length - 1] + "]");
     }
 
     public static void print(double[] array) {
@@ -116,7 +117,7 @@ public class MethodExercise {
 
     //bai3.8
     public static int[] copyOf(int[] array) {
-        int newArr[] = new int[array.length];
+        int[] newArr = new int[array.length];
         for (int arrIdx = 0; arrIdx < array.length; arrIdx++) {
             newArr[arrIdx] = array[arrIdx];
         }
@@ -124,7 +125,7 @@ public class MethodExercise {
     }
 
     public static int[] copyOf(int[] array, int newLength) {
-        int newArr[] = new int[newLength];
+        int[] newArr = new int[newLength];
         for (int arrIdx = 0; arrIdx < newLength; arrIdx++) {
             if (arrIdx < array.length) {
                 newArr[arrIdx] = array[arrIdx];
@@ -159,18 +160,20 @@ public class MethodExercise {
     }
 
     public static void main(String[] args) {
-        int arr[] = {1, 2, 3, 4};
-        int arr1[] = {1, 2, 3, 4};
+        int[] array = {1, 2, 3, 4};
+        int[] otherArray = {4, 3, 2, 1};
         Scanner sc = new Scanner(System.in);
+
         testExponent(sc);
         System.out.println("The magic sum is: " + testMagicSum(sc));
-        print(arr);
-        System.out.println(arrayToString(arr));
-        System.out.println(contains(arr, 0));
-        System.out.println(search(arr, 0));
-        System.out.println(equals(arr, arr1));
-        System.out.println(copyOf(arr));
-        System.out.println(swap(arr, arr1));
-        reverse(arr);
+        print(array);
+        System.out.println(arrayToString(array));
+        System.out.println(contains(array, 0));
+        System.out.println(search(array, 0));
+        System.out.println(equals(array, otherArray));
+        System.out.println(Arrays.toString(copyOf(array)));
+        System.out.println(swap(array, otherArray));
+        print(array);
+        reverse(array);
     }
 }

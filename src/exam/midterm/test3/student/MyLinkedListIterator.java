@@ -1,5 +1,7 @@
 package exam.midterm.test3.student;
 
+import java.util.NoSuchElementException;
+
 public class MyLinkedListIterator implements MyIterator {
     /* GỢI Ý: */
     /*
@@ -38,7 +40,7 @@ public class MyLinkedListIterator implements MyIterator {
     public Object next() {
         /* TODO */
         if (!hasNext()) {
-            throw new java.util.NoSuchElementException("No more elements in the list.");
+            throw new NoSuchElementException("No more elements in the list.");
         }
         Object payload = currentNode.getPayload(); // Lấy dữ liệu từ node hiện tại
         currentNode = currentNode.getNext(); // Di chuyển tới node tiếp theo

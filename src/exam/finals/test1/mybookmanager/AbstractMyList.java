@@ -9,9 +9,6 @@ public abstract class AbstractMyList implements MyList {
      */
     public boolean checkBoundaries(int index, int limit) {
         /* TODO */
-        if (index >= 0 && index <= limit) {
-            return true;
-        }
-        return false;
+        return index >= 0 && index <= limit;
     }
 }

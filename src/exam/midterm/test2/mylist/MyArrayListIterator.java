@@ -15,14 +15,18 @@ public class MyArrayListIterator implements MyIterator {
      */
     private int currentPosition;
 
+    private int size;
+
     /**
      * Khởi tạo dữ liệu cho Iterator bằng dữ liệu của MyArrayList để nó có thể duyệt qua các phần tử dữ liệu
      * của MyArrayList.
      * @param data
      */
-    public MyArrayListIterator(Object[] data) {
+    public MyArrayListIterator(Object[] data, int size) {
         /* TODO */
         this.data = data;
+        currentPosition = 0;
+        this.size = size;
     }
 
     /**
@@ -33,7 +37,7 @@ public class MyArrayListIterator implements MyIterator {
     @Override
     public boolean hasNext() {
         /* TODO */
-        return currentPosition < data.length;
+        return currentPosition < size;
     }
 
     /**
@@ -46,8 +50,6 @@ public class MyArrayListIterator implements MyIterator {
         if (!hasNext()) {
             throw new NoSuchElementException("No more elements");
         }
-        Object element = data[currentPosition];
-        currentPosition++;
-        return element;
+        return data[currentPosition++];
     }
 }

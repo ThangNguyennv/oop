@@ -89,7 +89,12 @@ public class MyLinkedList extends AbstractMyList {
     public void insertAtStart(Object value) {
         /* TODO */
         Node newNode = new Node(value, head);
-        head = newNode;
+        if (head == null) {
+            head = newNode;
+        } else {
+            newNode.next = head;
+            head = newNode;
+        }
         size++;
     }
 
@@ -196,6 +201,5 @@ public class MyLinkedList extends AbstractMyList {
             current = current.getNext();
         }
         System.out.println("null");
-        return;
     }
 }

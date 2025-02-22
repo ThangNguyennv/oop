@@ -22,10 +22,10 @@ public class MyListPolynomial extends MyAbstractPolynomial {
     @Override
     public double coefficient(int index) {
         /* TODO */
-        if (index < 0 || index >= coefficients.size()) {
-            throw new IndexOutOfBoundsException();
+        if (index >= 0 && index < coefficients.size()) {
+            return coefficients.get(index);
         }
-        return coefficients.get(index);
+        return 0.0;
     }
 
     /**
@@ -51,6 +51,8 @@ public class MyListPolynomial extends MyAbstractPolynomial {
      */
     public MyListPolynomial append(double coefficient) {
         /* TODO */
+        coefficients.add(coefficient);
+        return this;
     }
 
     /**
@@ -63,6 +65,8 @@ public class MyListPolynomial extends MyAbstractPolynomial {
      */
     public MyListPolynomial insert(double coefficient, int index) {
         /* TODO */
+        coefficients.add(index, coefficient);
+        return this;
     }
 
     /**
@@ -74,6 +78,8 @@ public class MyListPolynomial extends MyAbstractPolynomial {
      */
     public MyListPolynomial set(double coefficient, int index) {
         /* TODO */
+        coefficients.set(index, coefficient);
+        return this;
     }
 
     /**
@@ -84,6 +90,7 @@ public class MyListPolynomial extends MyAbstractPolynomial {
     @Override
     public int degree() {
         /* TODO */
+        return coefficients.size() - 1;
     }
 
     /**
@@ -94,6 +101,11 @@ public class MyListPolynomial extends MyAbstractPolynomial {
     @Override
     public double evaluate(double x) {
         /* TODO */
+        double result = 0.0;
+        for (int i = 0; i < coefficients.size(); i++) {
+            result += coefficients.get(i) * Math.pow(x, i);
+        }
+        return result;
     }
 
     /**
@@ -104,6 +116,11 @@ public class MyListPolynomial extends MyAbstractPolynomial {
     @Override
     public MyPolynomial derivative() {
         /* TODO */
+        MyListPolynomial derivative = new MyListPolynomial();
+        for (int i = 1; i < coefficients.size(); i++) {
+            derivative.append(coefficients.get(i) * i);
+        }
+        return derivative;
     }
 
     /**
@@ -114,6 +131,13 @@ public class MyListPolynomial extends MyAbstractPolynomial {
      */
     public MyListPolynomial plus(MyListPolynomial another) {
         /* TODO */
+        int maxLength = Math.max(coefficients.size(), another.degree() + 1);
+        MyListPolynomial result = new MyListPolynomial();
+        for (int i = 0; i < maxLength; i++) {
+            double coefficient = coefficient(i) + another.coefficient(i);
+            result.append(coefficient);
+        }
+        return result;
     }
 
     /**
@@ -124,6 +148,13 @@ public class MyListPolynomial extends MyAbstractPolynomial {
      */
     public MyListPolynomial minus(MyListPolynomial another) {
         /* TODO */
+        int maxLength = Math.max(coefficients.size(), another.degree() + 1);
+        MyListPolynomial result = new MyListPolynomial();
+        for (int i = 0; i < maxLength; i++) {
+            double coefficient = coefficient(i) - another.coefficient(i);
+            result.append(coefficient);
+        }
+        return result;
     }
 
     /**
@@ -134,5 +165,17 @@ public class MyListPolynomial extends MyAbstractPolynomial {
      */
     public MyListPolynomial multiply(MyListPolynomial another) {
         /* TODO */
+        int resultSize = coefficients.size() + another.degree() + 1 - 1;
+        MyListPolynomial result = new MyListPolynomial();
+        for (int i = 0; i < resultSize; i++) {
+            double coefficient = 0.0;
+            for (int j = 0; j <= i; j++) {
+                if (j < coefficients.size() && (i - j) < another.degree() + 1) {
+                    coefficient += coefficient(j) * another.coefficient(i - j);
+                }
+            }
+            result.append(coefficient);
+        }
+        return result;
     }
 }

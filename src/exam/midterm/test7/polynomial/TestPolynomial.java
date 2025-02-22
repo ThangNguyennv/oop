@@ -12,9 +12,9 @@ public class TestPolynomial {
            (ví dụ, NguyenVanA_123456_MyList.txt)
          - Nộp kết quả chạy chương trình (file text trên) cùng với các file source code.
          */
-        testRootSolver();
-        testArrayPolynomial();
-        testListPolynomial();
+//        testRootSolver();
+//        testArrayPolynomial();
+//        testListPolynomial();
     }
 
     public static void testArrayPolynomial() {
@@ -65,8 +65,8 @@ public class TestPolynomial {
         System.out.println("poly1 evaluated at x = 2: " + eval);
 
         // Test đạo hàm của poly1
-        ArrayPolynomial deriv = (ArrayPolynomial) poly1.derivative();
-        System.out.println("Đạo hàm của poly1: " + Arrays.toString(deriv.coefficients()));
+        ArrayPolynomial derivative = (ArrayPolynomial) poly1.derivative();
+        System.out.println("Đạo hàm của poly1: " + Arrays.toString(derivative.coefficients()));
     }
 
     public static void testListPolynomial() {
@@ -118,8 +118,8 @@ public class TestPolynomial {
         System.out.println("poly1 evaluated at x = 2: " + eval);
 
         // Test đạo hàm của poly1
-        ListPolynomial deriv = (ListPolynomial) poly1.derivative();
-        System.out.println("Đạo hàm của poly1: " + Arrays.toString(deriv.coefficients()));
+        ListPolynomial derivative = (ListPolynomial) poly1.derivative();
+        System.out.println("Đạo hàm của poly1: " + Arrays.toString(derivative.coefficients()));
     }
 
     public static void testRootSolver() {

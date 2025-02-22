@@ -24,10 +24,10 @@ public class MyArrayPolynomial extends MyAbstractPolynomial {
     @Override
     public double coefficient(int index) {
         /* TODO */
-        if (index < 0 || index >= length) {
-            throw new IndexOutOfBoundsException();
+        if (index >= 0 && index < length) {
+            return coefficients[index];
         }
-        return coefficients[index];
+        return 0.0;
     }
 
     /**
@@ -72,7 +72,7 @@ public class MyArrayPolynomial extends MyAbstractPolynomial {
         if (length == coefficients.length) {
             enlarge();
         }
-        System.arraycopy(coefficients, index, coefficients, index + 1, size - index);
+        System.arraycopy(coefficients, index, coefficients, index + 1, length - index);
         coefficients[index] = coefficient;
         length++;
         return this;
@@ -147,6 +147,7 @@ public class MyArrayPolynomial extends MyAbstractPolynomial {
         MyArrayPolynomial result = new MyArrayPolynomial();
         for (int i = 0; i < maxLength; i++) {
             double coefficient = coefficient(i) + another.coefficient(i);
+
             result.append(coefficient);
         }
         return result;

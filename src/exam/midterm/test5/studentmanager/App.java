@@ -93,7 +93,6 @@ public class App {
         init();
         writeListData();
 
-
         /* Yêu cầu:
         - Hoàn thiện code chương trình theo mẫu và theo yêu cầu đã cho.
         - Viết code để test cho tất cả các hàm test.
@@ -153,6 +152,10 @@ public class App {
 
     public static void testSortPhysicsGradeDecreasing() {
         /* TODO */
+          List<Student> list = StudentManager.getInstance().sortPhysicsGradeDecreasing();
+        for (Student item : list) {
+            System.out.println(item.toString());
+        }
     }
 
     public static void testSortChemistryGradeIncreasing() {

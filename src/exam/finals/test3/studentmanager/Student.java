@@ -1,95 +1,132 @@
-//package exam.finals.test3.studentmanager;
-//
-//public class Student {
-//    private String id;
-//    private String lastname;
-//    private String firstname;
-//    private int yearOfBirth;
-//    private double mathsGrade;
-//    private double physicsGrade;
-//    private double chemistryGrade;
-//
-//    private Student() {}
-//
-//    public static class StudentBuilder {
-//        private String id;
-//        private String lastname;
-//        private String firstname;
-//        private int yearOfBirth;
-//        private double mathsGrade;
-//        private double physicsGrade;
-//        private double chemistryGrade;
-//
-//        public StudentBuilder(String id) {
-//            /* TODO */
-//        }
-//
-//        public StudentBuilder withLastname(String lastname) {
-//            /* TODO */
-//        }
-//
-//        public StudentBuilder withFirstname(String firstname) {
-//            /* TODO */
-//        }
-//
-//        public StudentBuilder withYearOfBirth(int yearOfBirth) {
-//            /* TODO */
-//        }
-//
-//        public StudentBuilder withMathsGrade(double mathsGrade) {
-//            /* TODO */
-//        }
-//
-//        public StudentBuilder withPhysicsGrade(double physicsGrade) {
-//            /* TODO */
-//        }
-//
-//        public StudentBuilder withChemistryGrade(double chemistryGrade) {
-//            /* TODO */
-//        }
-//
-//        public Student build() {
-//            Student student = new Student();
-//            student.id = this.id;
-//            student.lastname = this.lastname;
-//            student.firstname = this.firstname;
-//            student.yearOfBirth = this.yearOfBirth;
-//            student.mathsGrade = this.mathsGrade;
-//            student.physicsGrade = this.physicsGrade;
-//            student.chemistryGrade = this.chemistryGrade;
-//            return student;
-//        }
-//    }
-//
-//    public String getId() {
-//        /* TODO */
-//    }
-//
-//    public String getLastname() {
-//        /* TODO */
-//    }
-//
-//    public String getFirstname() {
-//        /* TODO */
-//    }
-//
-//    public int getYearOfBirth() {
-//        /* TODO */
-//    }
-//
-//    public double getMathsGrade() {
-//        /* TODO */
-//    }
-//
-//    public double getPhysicsGrade() {
-//        /* TODO */
-//    }
-//
-//    public double getChemistryGrade() {
-//        /* TODO */
-//    }
-//
-//    public double getAverageGrade() {
-//        /* TODO */
-//    }
-//}
+package exam.finals.test3.studentmanager;
+
+public class Student {
+    private String id;
+    private String lastname;
+    private String firstname;
+    private int yearOfBirth;
+    private double mathsGrade;
+    private double physicsGrade;
+    private double chemistryGrade;
+
+    private Student() {
+
+    }
+
+    public static class StudentBuilder {
+        private String id;
+        private String lastname;
+        private String firstname;
+        private int yearOfBirth;
+        private double mathsGrade;
+        private double physicsGrade;
+        private double chemistryGrade;
+
+        public StudentBuilder(String id) {
+            /* TODO */
+            this.id = id;
+        }
+
+        public StudentBuilder withLastname(String lastname) {
+            /* TODO */
+            this.lastname = lastname;
+            return this;
+        }
+
+        public StudentBuilder withFirstname(String firstname) {
+            /* TODO */
+            this.firstname = firstname;
+            return this;
+        }
+
+        public StudentBuilder withYearOfBirth(int yearOfBirth) {
+            /* TODO */
+            this.yearOfBirth = yearOfBirth;
+            return this;
+        }
+
+        public StudentBuilder withMathsGrade(double mathsGrade) {
+            /* TODO */
+            this.mathsGrade = mathsGrade;
+            return this;
+        }
+
+        public StudentBuilder withPhysicsGrade(double physicsGrade) {
+            /* TODO */
+            this.physicsGrade = physicsGrade;
+            return this;
+        }
+
+        public StudentBuilder withChemistryGrade(double chemistryGrade) {
+            /* TODO */
+            this.chemistryGrade = chemistryGrade;
+            return this;
+        }
+
+        public Student build() {
+            Student student = new Student();
+            student.id = this.id;
+            student.lastname = this.lastname;
+            student.firstname = this.firstname;
+            student.yearOfBirth = this.yearOfBirth;
+            student.mathsGrade = this.mathsGrade;
+            student.physicsGrade = this.physicsGrade;
+            student.chemistryGrade = this.chemistryGrade;
+            return student;
+        }
+    }
+
+    public String getId() {
+        /* TODO */
+        return id;
+    }
+
+    public String getLastname() {
+        /* TODO */
+        return lastname;
+    }
+
+    public String getFirstname() {
+        /* TODO */
+        return firstname;
+    }
+
+    public int getYearOfBirth() {
+        /* TODO */
+        return yearOfBirth;
+    }
+
+    public double getMathsGrade() {
+        /* TODO */
+        return mathsGrade;
+    }
+
+    public double getPhysicsGrade() {
+        /* TODO */
+        return physicsGrade;
+    }
+
+    public double getChemistryGrade() {
+        /* TODO */
+        return chemistryGrade;
+    }
+
+    public double getAverageGrade() {
+        /* TODO */
+        return (getMathsGrade() + getPhysicsGrade() + getChemistryGrade()) / 3;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id='" + id + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", yearOfBirth=" + yearOfBirth +
+                ", mathsGrade=" + mathsGrade +
+                ", physicsGrade=" + physicsGrade +
+                ", chemistryGrade=" + chemistryGrade +
+                ", averageGrade=" + getAverageGrade() +
+                '}';
+    }
+}

@@ -17,9 +17,11 @@ public class TestMain {
         System.out.println("customer is: " + account1.getCustomer());
         System.out.println("balance is: " + account1.getBalance());
         System.out.println("Customer's name is: " + account1.getCustomerName());
+
         //Test deposit
         account1.deposit(100);
         System.out.println(account1);
+
         //Test withdraw
         account1.withdraw(50);
         System.out.println(account1);

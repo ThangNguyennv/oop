@@ -7,72 +7,73 @@ public class TestDriverVersionTwo {
         Scanner scanner = new Scanner(System.in);
         // Test constructor and toString()
         System.out.println("Enter complex number 1 (real and imaginary part): ");
-        System.out.print("Enter the real: ");
-        double firstOfRealOfComplexNumber = Double.parseDouble(scanner.nextLine());
+        System.out.print("Enter the real part: ");
+        double firstComplexNumberRealPart = Double.parseDouble(scanner.nextLine());
 
-        System.out.print("Enter the imag: ");
-        double firstOfImagOfComplexNumber = Double.parseDouble(scanner.nextLine());
+        System.out.print("Enter the imaginary part: ");
+        double firstComplexNumberImaginaryPart = Double.parseDouble(scanner.nextLine());
 
         System.out.println("Enter complex number 2 (real and imaginary part): ");
         System.out.print("Enter the real: ");
-        double secondOfRealOfComplexNumber = Double.parseDouble(scanner.nextLine());
+        double secondComplexNumberRealPart = Double.parseDouble(scanner.nextLine());
 
-        System.out.print("Enter the imag: ");
-        double secondOfImagOfComplexNumber = Double.parseDouble(scanner.nextLine());
+        System.out.print("Enter the imaginary part: ");
+        double secondComplexNumberImaginaryPart = Double.parseDouble(scanner.nextLine());
 
-        MyComplexVersionTwo firstOfComplexNumber = new MyComplexVersionTwo(firstOfRealOfComplexNumber, firstOfImagOfComplexNumber);
-        MyComplexVersionTwo secondOfComplexNumber = new MyComplexVersionTwo(secondOfRealOfComplexNumber, secondOfImagOfComplexNumber);
+        MyComplexVersionTwo firstComplexNumber = new MyComplexVersionTwo(firstComplexNumberRealPart,
+                firstComplexNumberImaginaryPart);
+        MyComplexVersionTwo secondComplexNumber = new MyComplexVersionTwo(secondComplexNumberRealPart,
+                secondComplexNumberImaginaryPart);
 
         // Test isReal() and isImaginary()
-        System.out.println("firstOfComplexNumber is: " + firstOfComplexNumber);
-        if (!firstOfComplexNumber.isReal()) {
-            System.out.println(firstOfComplexNumber + " is NOT a pure real number");
+        System.out.println("The first complex number is: " + firstComplexNumber);
+        if (!firstComplexNumber.isReal()) {
+            System.out.println(firstComplexNumber + " is NOT a pure real number");
         } else {
-            System.out.println(firstOfComplexNumber + " is a pure real number");
+            System.out.println(firstComplexNumber + " is a pure real number");
         }
-        if (!firstOfComplexNumber.isImaginary()) {
-            System.out.println(firstOfComplexNumber + " is NOT a pure imaginary number");
+        if (!firstComplexNumber.isImaginary()) {
+            System.out.println(firstComplexNumber + " is NOT a pure imaginary number");
         } else {
-            System.out.println(firstOfComplexNumber + " is a pure imaginary number");
+            System.out.println(firstComplexNumber + " is a pure imaginary number");
         }
 
-        System.out.println("secondOfComplexNumber is: " + secondOfComplexNumber);
-        if (!secondOfComplexNumber.isReal()) {
-            System.out.println(secondOfComplexNumber + " is NOT a pure real number");
+        System.out.println("The second complex number is: " + secondComplexNumber);
+        if (!secondComplexNumber.isReal()) {
+            System.out.println(secondComplexNumber + " is NOT a pure real number");
         } else {
-            System.out.println(secondOfComplexNumber + " is a pure real number");
+            System.out.println(secondComplexNumber + " is a pure real number");
         }
-        if (!secondOfComplexNumber.isImaginary()) {
-            System.out.println(secondOfComplexNumber + " is NOT a pure imaginary number");
+        if (!secondComplexNumber.isImaginary()) {
+            System.out.println(secondComplexNumber + " is NOT a pure imaginary number");
         } else {
-            System.out.println(secondOfComplexNumber + " is a pure imaginary number");
+            System.out.println(secondComplexNumber + " is a pure imaginary number");
         }
 
         // Test equals()
-        if (!firstOfComplexNumber.equals(secondOfComplexNumber)) {
-            System.out.println(firstOfComplexNumber + " is NOT equal to " + secondOfComplexNumber);
+        if (!firstComplexNumber.equals(secondComplexNumber)) {
+            System.out.println(firstComplexNumber + " is NOT equal to " + secondComplexNumber);
         } else {
-            System.out.println(firstOfComplexNumber + " is equal to " + secondOfComplexNumber);
+            System.out.println(firstComplexNumber + " is equal to " + secondComplexNumber);
         }
 
         // Test add()
-        System.out.println(firstOfComplexNumber + " + " + secondOfComplexNumber +
-                " = " + firstOfComplexNumber.add(secondOfComplexNumber));
+        System.out.println(firstComplexNumber + " + " + secondComplexNumber +
+                " = " + firstComplexNumber.add(secondComplexNumber));
 
         // Test subtract()
-        System.out.println(firstOfComplexNumber + " - " + secondOfComplexNumber +
-                " = " + firstOfComplexNumber.subtract(secondOfComplexNumber));
+        System.out.println(firstComplexNumber + " - " + secondComplexNumber +
+                " = " + firstComplexNumber.subtract(secondComplexNumber));
 
         // Test multiply()
-        System.out.println(firstOfComplexNumber + " * " + secondOfComplexNumber +
-                " = " + firstOfComplexNumber.multiply(secondOfComplexNumber));
+        System.out.println(firstComplexNumber + " * " + secondComplexNumber +
+                " = " + firstComplexNumber.multiply(secondComplexNumber));
 
         // Test divide()
-        System.out.println(firstOfComplexNumber + " / " + secondOfComplexNumber +
-                " = " + firstOfComplexNumber.divide(secondOfComplexNumber));
+        System.out.println(firstComplexNumber + " / " + secondComplexNumber +
+                " = " + firstComplexNumber.divide(secondComplexNumber));
 
-        // Test conjugate() (Khi test ta sử dụng hàm toString() mà mình comment lại để ra kết quả mong muốn)
-        System.out.println("conjugate of " + firstOfComplexNumber +
-                " is: " + firstOfComplexNumber.conjugate());
+        System.out.println("Conjugate of " + firstComplexNumber +
+                " is: " + firstComplexNumber.conjugate());
     }
 }

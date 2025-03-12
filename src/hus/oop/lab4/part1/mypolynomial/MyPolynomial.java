@@ -46,7 +46,7 @@ class MyPolynomial {
         double result = 0;
         int degree = getDegree();
         for (int i = degree; i >= 0; i--) {
-            result += coeffs[i] * Math.pow(x, i);
+            result += coeffs[degree - i] * Math.pow(x, i);
         }
         return result;
     }
@@ -55,14 +55,14 @@ class MyPolynomial {
         int degree1 = getDegree();
         int degree2 = right.getDegree();
         int maxDegree = Math.max(degree1, degree2);
-        double[] resultCoeffs = new double[maxDegree + 1];
+        double[] coefficientArray = new double[maxDegree + 1];
         for (int i = 0; i <= degree1; i++) {
-            resultCoeffs[maxDegree - degree1 + i] += coeffs[i];
+            coefficientArray[maxDegree - degree1 + i] += coeffs[i];
         }
         for (int i = 0; i <= degree2; i++) {
-            resultCoeffs[maxDegree - degree2 + i] += right.coeffs[i];
+            coefficientArray[maxDegree - degree2 + i] += right.coeffs[i];
         }
-        coeffs = resultCoeffs;
+        coeffs = coefficientArray;
         return this;
     }
 
@@ -70,13 +70,13 @@ class MyPolynomial {
         int degree1 = getDegree();
         int degree2 = right.getDegree();
         int resultDegree = degree1 + degree2;
-        double[] resultCoeffs = new double[resultDegree + 1];
+        double[] coefficientArray = new double[resultDegree + 1];
         for (int i = 0; i <= degree1; i++) {
             for (int j = 0; j <= degree2; j++) {
-                resultCoeffs[i + j] += coeffs[i] * right.coeffs[j];
+                coefficientArray[i + j] += coeffs[i] * right.coeffs[j];
             }
         }
-        coeffs = resultCoeffs;
+        coeffs = coefficientArray;
         return this;
     }
 }

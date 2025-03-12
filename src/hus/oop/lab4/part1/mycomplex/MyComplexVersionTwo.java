@@ -35,16 +35,12 @@ public class MyComplexVersionTwo {
         this.imag = imag;
     }
 
-//    public String toString() {
-//        return "(" + this.real + " + " + this.imag + "i" + ")";
-//    }
-
-     public String toString(){
-         if(imag >= 0)
-             return "(" + this.real + " + " + this.imag + "i" + ")";
-         else
-             return "(" + this.real + " - " + Math.abs(this.imag) + "i" + ")";
-     }
+    public String toString() {
+        if (imag > 0) {
+            return "(" + this.real + " + " + this.imag + "i" + ")";
+        }
+        return "(" + this.real + " - " + Math.abs(this.imag) + "i" + ")";
+    }
 
     public boolean isReal() {
         return this.imag == 0;
@@ -95,28 +91,27 @@ public class MyComplexVersionTwo {
     // => z1 * z2 = (a * c - b * d) + (a * d + b * c)i
     public MyComplexVersionTwo multiply(MyComplexVersionTwo right) {
         double realNumber = (this.real * right.getReal()) - (this.imag * right.getImag());
-        double imagNumber = (this.real * right.getImag()) + (this.imag * right.getReal());
+        double imaginaryNumber = (this.real * right.getImag()) + (this.imag * right.getReal());
         this.real = realNumber;
-        this.imag = imagNumber;
+        this.imag = imaginaryNumber;
         return this;
     }
 
+    // z1 = a + bi
+    // z2 = c + di
+    // z1 / z2 = (z1 * đối z2) / (z2)^2 =  (a * c + b * d) + (b * c - a * d)i / (c^2 + d^2)
     public MyComplexVersionTwo divide(MyComplexVersionTwo right) {
-        // z1 = a + bi
-        // z2 = c + di
-        // z1 / z2 = (z1 * đối z2) / (z2)^2 =  (a * c + b * d) + (b * c - a * d)i / (c^2 + d^2)
-        double temp = right.getReal() * right.getReal() + right.getImag() * right.getImag();
+        double temp = (right.getReal() * right.getReal()) + (right.getImag() * right.getImag());
         double realNumber = (real * right.getReal() + imag * right.getImag()) / temp;
-        double imagNumber = (imag * right.getReal() - real * right.getImag()) / temp;
+        double imaginaryNumber = (imag * right.getReal() - real * right.getImag()) / temp;
         real = realNumber;
-        imag = imagNumber;
+        imag = imaginaryNumber;
         return this;
     }
 
     // Số phức liên hợp
     public MyComplexVersionTwo conjugate() {
-        double imagNumber = -imag;
-        imag = imagNumber;
+        imag = -imag;
         return this;
     }
 }

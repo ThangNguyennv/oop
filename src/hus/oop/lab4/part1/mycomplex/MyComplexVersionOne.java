@@ -36,7 +36,10 @@ public class MyComplexVersionOne {
     }
 
     public String toString() {
-        return "(" + this.real + " + " + this.imag + "i" + ")";
+        if (imag > 0) {
+            return "(" + this.real + " + " + this.imag + "i" + ")";
+        }
+        return "(" + this.real + " - " + Math.abs(this.imag) + "i" + ")";
     }
 
     public boolean isReal() {
@@ -56,7 +59,8 @@ public class MyComplexVersionOne {
 
     }
 
-    public double magnitude() { // Mô đun
+    // Mô đun
+    public double magnitude() {
         return Math.sqrt(real * real + imag * imag);
     }
 

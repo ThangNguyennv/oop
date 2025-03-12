@@ -2,12 +2,15 @@ package hus.oop.lab4.part2.exercise1;
 
 public class TestBook {
     public static void main(String[] args) {
+
         // Test constructor
         Author ahTeck = new Author("Tan Ah Teck", "ahteck@nowhere.com", 'm');
 
-        System.out.println(ahTeck); // Test toString();
+        // Test toString();
+        System.out.println(ahTeck);
 
-        Book dummyBook = new Book("Java for dummy", ahTeck, 19.95, 99); // Test Book's Constructor
+        // Test Book's Constructor
+        Book dummyBook = new Book("Java for dummy", ahTeck, 19.95, 99);
         System.out.println(dummyBook);
 
         //Test getters and setters

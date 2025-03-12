@@ -20,7 +20,7 @@ class MyPolynomial {
         for (int i = degree; i >= 0; i--) {
             double coeff = coeffs[degree - i];
             if (coeff != 0) {
-                if (coeff > 0 && firstNotZero == true) {
+                if (coeff > 0 && firstNotZero) {
                     builder.append(" + ");
                 } else if (coeff < 0) {
                     builder.append(" - ");

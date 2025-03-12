@@ -1,15 +1,15 @@
 package hus.oop.lab4.part1.mycomplex;
 
-public class MyComplex {
+public class MyComplexVersionOne {
     private double real;
     private double imag;
 
-    public MyComplex() {
+    public MyComplexVersionOne() {
         real = 0.0;
         imag = 0.0;
     }
 
-    public MyComplex(double real, double imag) {
+    public MyComplexVersionOne(double real, double imag) {
         this.real = real;
         this.imag = imag;
     }
@@ -51,22 +51,22 @@ public class MyComplex {
         return this.real == this.imag;
     }
 
-    public boolean equals(MyComplex another) {
+    public boolean equals(MyComplexVersionOne another) {
         return (this.real == another.getReal()) && (this.imag == another.getImag());
 
     }
 
-    public double magnitude() {
+    public double magnitude() { // Mô đun
         return Math.sqrt(real * real + imag * imag);
     }
 
-    public MyComplex addInto(MyComplex right) {
+    public MyComplexVersionOne addInto(MyComplexVersionOne right) {
         this.real += right.getReal();
         this.imag += right.getImag();
         return this;
     }
 
-    public MyComplex addNew(MyComplex right) {
-        return new MyComplex(this.real + right.getReal(), this.imag + right.getImag());
+    public MyComplexVersionOne addNew(MyComplexVersionOne right) {
+        return new MyComplexVersionOne(this.real + right.getReal(), this.imag + right.getImag());
     }
 }

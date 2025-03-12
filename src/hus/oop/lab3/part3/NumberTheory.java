@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class NumberTheory {
     static Scanner sc = new Scanner(System.in);
 
-    //bai3.1
+    //Exercise 3.1
     public static boolean isPerfect(int aPosInt) {
         int sum = 1;
         for (int i = 2; i <= Math.sqrt(aPosInt); i++) {
@@ -18,7 +18,7 @@ public class NumberTheory {
 
     public static void printPerfect(int amount) {
         for (int i = 6; i <= amount; i++) {
-            if (isPerfect(i) == true) {
+            if (isPerfect(i)) {
                 System.out.print(i + " ");
             }
         }
@@ -27,7 +27,7 @@ public class NumberTheory {
     public static int countPerfect(int amount) {
         int count = 0;
         for (int i = 6; i <= amount; i++) {
-            if (isPerfect(i) == true) {
+            if (isPerfect(i)) {
                 count++;
             }
         }
@@ -38,7 +38,7 @@ public class NumberTheory {
         int sum = 1;
         for (int i = 2; i < Math.sqrt(aPosInt); i++) {
             if (aPosInt % i == 0) {
-                sum += i + aPosInt / i;
+                sum += i + (aPosInt / i);
             }
         }
         return sum < aPosInt;
@@ -46,8 +46,8 @@ public class NumberTheory {
 
     public static int countNotDeficientAndPerfect(int amount) {
         int count = 0;
-        for (int i = 1; i <= amount; i++) {
-            if (isPerfect(i) == false && isDeficient(i) == false) {
+        for (int i = 0; i <= amount; i++) {
+            if (!isPerfect(i) && !isDeficient(i)) {
                 count++;
             }
         }
@@ -56,7 +56,7 @@ public class NumberTheory {
 
     public static void isNotPerfectAndDeficient(int amount) {
         for (int i = 1; i <= amount; i++) {
-            if (isPerfect(i) == false && isDeficient(i) == false) {
+            if (!isPerfect(i) && !isDeficient(i)) {
                 System.out.print(i + " ");
             }
         }
@@ -79,7 +79,7 @@ public class NumberTheory {
                 String.format("%.2f", (countNotDeficientAndPerfect(amount) * 1.0 * 100) / amount) + "%)]");
     }
 
-    //bai3.2
+    //Exercise 3.2
     public static boolean isPrime(int aPosInt) {
         for (int i = 2; i <= Math.sqrt(aPosInt); i++) {
             if (aPosInt % i == 0) {
@@ -115,7 +115,7 @@ public class NumberTheory {
                 " primes found (" + String.format("%.2f", (countPrime(amount) * 1.0 * 100) / amount) + "%)]");
     }
 
-    //bai3.3
+    //Exercise 3.3
     public static boolean isProductOfPrimeFactors(int aPosInt) {
         int product = 1;
         for (int i = 2; i < aPosInt; i++) {
@@ -128,7 +128,7 @@ public class NumberTheory {
 
     public static void perfectPrimeFactorList(int amount) {
         for (int i = 6; i <= amount; i++) {
-            if (isProductOfPrimeFactors(i) == true) {
+            if (isProductOfPrimeFactors(i)) {
                 System.out.print(i + " ");
             }
         }
@@ -154,7 +154,7 @@ public class NumberTheory {
                 " numbers found (" + String.format("%.2f", (countPrimeFactor(amount) * 1.0 * 100) / 100) + "%)]");
     }
 
-    //bai3.4
+    //Exercise 3.4
     public static int gcd(int a, int b) {
         while (b != 0) {
             int temp = a % b;
@@ -168,9 +168,9 @@ public class NumberTheory {
         System.out.print("Enter the first number: ");
         int firstNum = Integer.parseInt(sc.nextLine());
         System.out.print("Enter the second number: ");
-        int seconNum = sc.nextInt();
+        int secondNum = sc.nextInt();
         System.out.println("GCD of the two number " +
-                firstNum + " and " + seconNum + " is: " + gcd(firstNum, seconNum));
+                firstNum + " and " + secondNum + " is: " + gcd(firstNum, secondNum));
     }
 
     public static void main(String[] args) {

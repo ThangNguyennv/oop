@@ -3,9 +3,9 @@ package hus.oop.lab3.part2;
 import java.util.Scanner;
 
 public class SortingAndSearching {
-    static Scanner sc = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
 
-    //bai2.1
+    //Exercise 2.1
     public static boolean linearSearch(int[] array, int key) {
         for (int i = 0; i < array.length; i++) {
             if (array[i] == key) {
@@ -17,18 +17,18 @@ public class SortingAndSearching {
 
     public static void testLinearSearch() {
         System.out.print("Enter the length of array: ");
-        int length = sc.nextInt();
-        int arr[] = new int[length];
+        int length = scanner.nextInt();
+        int[] array = new int[length];
         System.out.print("Enter the element of array: ");
         for (int i = 0; i < length; i++) {
-            arr[i] = sc.nextInt();
+            array[i] = scanner.nextInt();
         }
         System.out.print("Enter the key: ");
-        int key = sc.nextInt();
-        if (linearSearch(arr, key) == true) {
-            System.out.println("The key is found");
+        int key = scanner.nextInt();
+        if (linearSearch(array, key)) {
+            System.out.println("The key is found.");
         } else {
-            System.out.println("The key is not found");
+            System.out.println("The key is not found.");
         }
     }
 
@@ -38,34 +38,33 @@ public class SortingAndSearching {
                 return i;
             }
         }
-        return 0;
+        return -1;
     }
 
     public static void testLinearSearchIndex() {
         System.out.print("Enter the length of array: ");
-        int length = sc.nextInt();
-        int arr[] = new int[length];
+        int length = scanner.nextInt();
+        int[] array = new int[length];
         System.out.print("Enter the element of array: ");
         for (int i = 0; i < length; i++) {
-            arr[i] = sc.nextInt();
+            array[i] = scanner.nextInt();
         }
         System.out.print("Enter the key: ");
-        int key = sc.nextInt();
-        if (linearSearchIndex(arr, key) == 0) {
+        int key = scanner.nextInt();
+        if (linearSearchIndex(array, key) == -1) {
             System.out.println("The key is not found");
         } else {
-            System.out.println("The key is found and the array index is: " + linearSearchIndex(arr, key));
+            System.out.println("The key is found and the array index is: " + linearSearchIndex(array, key));
         }
     }
 
-    //bai2.2
-    public static boolean binarySearch(int array[], int key, int fromIdx, int toIdx) {
+    //Exercise 2.2
+    public static boolean binarySearch(int[] array, int key, int fromIdx, int toIdx) {
         if (fromIdx == toIdx - 1) {
             if (array[fromIdx] == key) {
                 return true;
-            } else {
-                return false;
             }
+            return false;
         } else {
             int middle = (fromIdx + toIdx) / 2;
             if (key == array[middle]) {
@@ -81,26 +80,26 @@ public class SortingAndSearching {
 
     public static void testBinarySearch() {
         System.out.print("Enter the length of array: ");
-        int length = sc.nextInt();
-        int arr[] = new int[length];
+        int length = scanner.nextInt();
+        int[] array = new int[length];
         System.out.print("Enter the element of array: ");
         for (int i = 0; i < length; i++) {
-            arr[i] = sc.nextInt();
+            array[i] = scanner.nextInt();
         }
         System.out.print("Enter the key: ");
-        int key = sc.nextInt();
+        int key = scanner.nextInt();
         System.out.print("Enter the fromIdx: ");
-        int fromIdx = sc.nextInt();
+        int fromIdx = scanner.nextInt();
         System.out.print("Enter the toIdx: ");
-        int toIdx = sc.nextInt();
-        if (binarySearch(arr, key, fromIdx, toIdx) == true) {
+        int toIdx = scanner.nextInt();
+        if (binarySearch(array, key, fromIdx, toIdx)) {
             System.out.println("The key is found");
         } else {
             System.out.println("The key is not found");
         }
     }
 
-    //bai2.3
+    //Exercise 2.3
     public static void swap(int[] array, int index1, int index2) {
         int temp = array[index1];
         array[index1] = array[index2];
@@ -108,36 +107,36 @@ public class SortingAndSearching {
     }
 
     public static void bubbleSort(int[] array) {
-        int n = array.length;
+        int length = array.length;
         boolean swapped;
         do {
             swapped = false;
-            for (int i = 1; i < n; i++) {
+            for (int i = 1; i < length; i++) {
                 if (array[i - 1] > array[i]) {
                     swap(array, i - 1, i);
                     swapped = true;
                 }
             }
-            n = n - 1;
+            length = length - 1;
         } while (swapped);
     }
 
     public static void testBubbleSort() {
         System.out.print("Enter the length of array: ");
-        int length = sc.nextInt();
-        int arr[] = new int[length];
+        int length = scanner.nextInt();
+        int[] array = new int[length];
         System.out.print("Enter the element of array: ");
         for (int i = 0; i < length; i++) {
-            arr[i] = sc.nextInt();
+            array[i] = scanner.nextInt();
         }
-        bubbleSort(arr);
+        bubbleSort(array);
         System.out.println("The array is sorted: ");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
         }
     }
 
-    //bai2.4
+    //Exercise 2.4
     public static void selectionSort(int[] array) {
         for (int i = 0; i < array.length; i++) {
             int min_pos = i;
@@ -154,20 +153,20 @@ public class SortingAndSearching {
 
     public static void testSelectionSort() {
         System.out.print("Enter the length of array: ");
-        int length = sc.nextInt();
-        int arr[] = new int[length];
+        int length = scanner.nextInt();
+        int[] array = new int[length];
         System.out.print("Enter the element of array: ");
         for (int i = 0; i < length; i++) {
-            arr[i] = sc.nextInt();
+            array[i] = scanner.nextInt();
         }
-        selectionSort(arr);
+        selectionSort(array);
         System.out.println("The array is sorted: ");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
         }
     }
 
-    //bai2.5
+    //Exercise 2.5
     public static void insertionSort(int[] array) {
         for (int i = 1; i < array.length; i++) {
             //Lấy ra phần tử ở chỉ số i
@@ -182,16 +181,16 @@ public class SortingAndSearching {
 
     public static void testInsertionSort() {
         System.out.print("Enter the length of array: ");
-        int length = sc.nextInt();
-        int arr[] = new int[length];
+        int length = scanner.nextInt();
+        int[] array = new int[length];
         System.out.print("Enter the element of array: ");
         for (int i = 0; i < length; i++) {
-            arr[i] = sc.nextInt();
+            array[i] = scanner.nextInt();
         }
-        insertionSort(arr);
+        insertionSort(array);
         System.out.println("The array is sorted: ");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
         }
     }
 

@@ -23,7 +23,7 @@ public class TestMain {
         System.out.println(account1);
 
         // Test transfer()
-        account1.transferto(account2, 100); //toString()
+        account1.transferTo(account2, 100); //toString()
         System.out.println(account1);
         System.out.println(account2);
     }

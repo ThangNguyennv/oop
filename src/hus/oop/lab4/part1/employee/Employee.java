@@ -55,7 +55,7 @@ public class Employee {
 
     public int raiseSalary(int percent) {
         double increment = (percent * this.salary) / 100;
-        salary += increment;
+        salary += (int) increment;
         return salary;
     }
 
